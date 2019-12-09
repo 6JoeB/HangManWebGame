@@ -14,6 +14,8 @@ namespace HangManTests
         string[] lettersAvailable = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
         string[] lettersCorrectlyGuessed = { };
         string[] lettersIncorrectlyGuessed = { };
+        int numberOfGuesses;
+        string guess = "";
 
         [SetUp]
         public void Setup()
@@ -23,7 +25,9 @@ namespace HangManTests
                 Word = word,
                 LettersAvailable = lettersAvailable,
                 LettersCorrectlyGuessed = lettersCorrectlyGuessed,
-                LettersIncorrectlyGuessed = lettersIncorrectlyGuessed
+                LettersIncorrectlyGuessed = lettersIncorrectlyGuessed,
+                NumberOfGuesses = numberOfGuesses,
+                Guess = guess
             };
         }
 
@@ -55,6 +59,19 @@ namespace HangManTests
         public void GameHasLettersIncorrectlyGuessed()
         {
             Assert.AreEqual(game.LettersIncorrectlyGuessed, lettersIncorrectlyGuessed);
+        }
+
+        [Test]
+        public void GameHasNumberOfGuesses()
+        {
+            Assert.AreEqual(game.NumberOfGuesses, numberOfGuesses);
+        }
+
+        [Test]
+        public void GameCanTakeGuess()
+        {
+            game.GetGuess("a");
+            Assert.AreEqual(game.Guess, guess);
         }
 }
 }

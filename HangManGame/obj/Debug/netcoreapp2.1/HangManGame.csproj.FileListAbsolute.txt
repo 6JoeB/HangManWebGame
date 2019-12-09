@@ -65,3 +65,4 @@
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/Debug/netcoreapp2.1/HangManGame.dll
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/Debug/netcoreapp2.1/HangManGame.pdb
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/Debug/netcoreapp2.1/HangManGame.csproj.CopyComplete
+/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/Debug/netcoreapp2.1/HangManGame.csprojAssemblyReference.cache
