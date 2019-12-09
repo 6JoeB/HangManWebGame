@@ -28,6 +28,7 @@ namespace HangManTests
 
         }
 
+        [Test]
         public void PlayerHasName()
         {
             Assert.AreEqual(player.Name, name);
