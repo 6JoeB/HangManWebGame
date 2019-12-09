@@ -6,6 +6,9 @@ Makers academy final project.
 User Stories
 -----
 
+As a user, I want to be able to start a game of hangman
+
+As a user, when playing against the computer, I want to select a difficulty level
 
 As a user, I want to be able to guess a letter, and be told if my guess is correct or not
 
@@ -35,6 +38,5 @@ As a user, I want the computer to pick a random word for me to guess
 
 As a user, I want to be able to play against a human player who can pick a word for me to guess, and confirm if my answers are correct or not
 
-As a user, when playing against the computer, I want to select a difficulty level
 
 -----
