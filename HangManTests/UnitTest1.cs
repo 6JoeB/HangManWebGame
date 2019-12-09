@@ -5,16 +5,16 @@ namespace HangManTests
 {
     public class Tests
     {
+        public Play play; 
         [SetUp]
         public void Setup()
         {
-           Play play = new Play();
+           play = new Play();
         }
 
         [Test]
         public void CheckForArray()
         {
-            
             Assert.That(play.words, Is.Not.Empty);
         }
     }

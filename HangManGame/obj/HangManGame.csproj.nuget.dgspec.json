@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj": {}
+    "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj": {}
   },
   "projects": {
-    "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj": {
+    "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj",
+        "projectUniqueName": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj",
         "projectName": "HangManGame",
-        "projectPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj",
+        "projectPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj",
         "packagesPath": "C:\\Users\\swade\\.nuget\\packages\\",
-        "outputPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\obj\\",
+        "outputPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

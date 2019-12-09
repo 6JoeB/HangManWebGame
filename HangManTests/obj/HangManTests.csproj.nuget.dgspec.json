@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManTests\\HangManTests.csproj": {}
+    "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManTests\\HangManTests.csproj": {}
   },
   "projects": {
-    "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj": {
+    "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj",
+        "projectUniqueName": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj",
         "projectName": "HangManGame",
-        "projectPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj",
+        "projectPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj",
         "packagesPath": "C:\\Users\\swade\\.nuget\\packages\\",
-        "outputPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\obj\\",
+        "outputPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -81,14 +81,14 @@
         }
       }
     },
-    "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManTests\\HangManTests.csproj": {
+    "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManTests\\HangManTests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManTests\\HangManTests.csproj",
+        "projectUniqueName": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManTests\\HangManTests.csproj",
         "projectName": "HangManTests",
-        "projectPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManTests\\HangManTests.csproj",
+        "projectPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManTests\\HangManTests.csproj",
         "packagesPath": "C:\\Users\\swade\\.nuget\\packages\\",
-        "outputPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManTests\\obj\\",
+        "outputPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManTests\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -107,8 +107,8 @@
         "frameworks": {
           "netcoreapp2.1": {
             "projectReferences": {
-              "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj": {
-                "projectPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj"
+              "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj": {
+                "projectPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj"
               }
             }
           }
@@ -134,7 +134,7 @@
             },
             "NUnit3TestAdapter": {
               "target": "Package",
-              "version": "[3.13.0, )"
+              "version": "[3.15.1, )"
             },
             "nunit": {
               "target": "Package",
