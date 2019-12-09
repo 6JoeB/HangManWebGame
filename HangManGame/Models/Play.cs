@@ -7,6 +7,7 @@ namespace HangManGame.Models
 {
     public class Play
     {
-        string[] words = { "red", "green", "blue", "pink" };
+       public string[] words = { "red", "green", "blue", "pink" };
+
     }
 }
