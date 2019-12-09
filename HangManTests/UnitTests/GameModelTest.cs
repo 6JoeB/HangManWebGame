@@ -23,7 +23,7 @@ namespace HangManTests
                 Word = word,
                 LettersAvailable = lettersAvailable,
                 LettersCorrectlyGuessed = lettersCorrectlyGuessed,
-                LettersIncorrectlyGuessed = lettersIncorrectlyGuessed;
+                LettersIncorrectlyGuessed = lettersIncorrectlyGuessed
             };
         }
 

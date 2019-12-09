@@ -42,7 +42,6 @@
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/bin/Debug/netcoreapp2.1/HangManGame.pdb
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/bin/Debug/netcoreapp2.1/HangManGame.Views.dll
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/bin/Debug/netcoreapp2.1/HangManGame.Views.pdb
-/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/Debug/netcoreapp2.1/HangManGame.csprojAssemblyReference.cache
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/Debug/netcoreapp2.1/HangManGame.RazorAssemblyInfo.cache
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/Debug/netcoreapp2.1/HangManGame.RazorAssemblyInfo.cs
 /Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/Debug/netcoreapp2.1/HangManGame.AssemblyInfoInputs.cache
