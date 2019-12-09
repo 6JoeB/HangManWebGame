@@ -1611,6 +1611,21 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "HangManGame/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "dependencies": {
+          "Microsoft.NETCore.App": "2.1.0",
+          "NUnit": "3.12.0",
+          "NUnit3TestAdapter": "3.15.1"
+        },
+        "compile": {
+          "bin/placeholder/HangManGame.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HangManGame.dll": {}
+        }
       }
     }
   },
@@ -5678,10 +5693,16 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "HangManGame/1.0.0": {
+      "type": "project",
+      "path": "../HangManGame/HangManGame.csproj",
+      "msbuildProject": "../HangManGame/HangManGame.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "HangManGame >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.2.0",
       "Microsoft.NETCore.App >= 2.1.0",
       "NUnit3TestAdapter >= 3.13.0",
@@ -5689,33 +5710,39 @@
     ]
   },
   "packageFolders": {
-    "/Users/Student/.nuget/packages/": {},
-    "/usr/local/share/dotnet/sdk/NuGetFallbackFolder": {}
+    "C:\\Users\\swade\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Student/Desktop/HangManGame/HangManTests/HangManTests.csproj",
+      "projectUniqueName": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManTests\\HangManTests.csproj",
       "projectName": "HangManTests",
-      "projectPath": "/Users/Student/Desktop/HangManGame/HangManTests/HangManTests.csproj",
-      "packagesPath": "/Users/Student/.nuget/packages/",
-      "outputPath": "/Users/Student/Desktop/HangManGame/HangManTests/obj/",
+      "projectPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManTests\\HangManTests.csproj",
+      "packagesPath": "C:\\Users\\swade\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManTests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
-        "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+        "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "/Users/Student/.config/NuGet/NuGet.Config"
+        "C:\\Users\\swade\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.1"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj": {
+              "projectPath": "C:\\Users\\swade\\source\\repos\\HangManWebGame\\HangManGame\\HangManGame.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
@@ -5732,7 +5759,6 @@
             "version": "[16.2.0, )"
           },
           "Microsoft.NETCore.App": {
-            "suppressParent": "All",
             "target": "Package",
             "version": "[2.1.0, )",
             "autoReferenced": true
@@ -5747,17 +5773,22 @@
           }
         },
         "imports": [
-          "net461",
-          "net462",
-          "net47",
-          "net471",
-          "net472",
-          "net48"
+          "net461"
         ],
         "assetTargetFallback": true,
-        "warn": true,
-        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+        "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1605",
+      "level": "Error",
+      "message": "Detected package downgrade: NUnit3TestAdapter from 3.15.1 to 3.13.0. Reference the package directly from the project to select a different version. \r\n HangManTests -> HangManGame -> NUnit3TestAdapter (>= 3.15.1) \r\n HangManTests -> NUnit3TestAdapter (>= 3.13.0)",
+      "libraryId": "NUnit3TestAdapter",
+      "targetGraphs": [
+        ".NETCoreApp,Version=v2.1"
+      ]
+    }
+  ]
 }

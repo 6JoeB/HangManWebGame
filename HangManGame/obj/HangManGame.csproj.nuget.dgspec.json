@@ -1,28 +1,30 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Student/Desktop/HangManGame/HangManGame/HangManGame.csproj": {}
+    "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj": {}
   },
   "projects": {
-    "/Users/Student/Desktop/HangManGame/HangManGame/HangManGame.csproj": {
+    "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Student/Desktop/HangManGame/HangManGame/HangManGame.csproj",
+        "projectUniqueName": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj",
         "projectName": "HangManGame",
-        "projectPath": "/Users/Student/Desktop/HangManGame/HangManGame/HangManGame.csproj",
-        "packagesPath": "/Users/Student/.nuget/packages/",
-        "outputPath": "/Users/Student/Desktop/HangManGame/HangManGame/obj/",
+        "projectPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\HangManGame.csproj",
+        "packagesPath": "C:\\Users\\swade\\.nuget\\packages\\",
+        "outputPath": "\\\\INSURANCE\\FileData\\SiteHome\\Pegasus\\SWade\\HangManWebGame\\HangManGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
-          "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
         ],
         "configFilePaths": [
-          "/Users/Student/.config/NuGet/NuGet.Config"
+          "C:\\Users\\swade\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
           "netcoreapp2.1"
         ],
         "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -55,6 +57,14 @@
               "target": "Package",
               "version": "[2.1.0, )",
               "autoReferenced": true
+            },
+            "NUnit": {
+              "target": "Package",
+              "version": "[3.12.0, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[3.15.1, )"
             }
           },
           "imports": [
@@ -67,7 +77,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/3.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }
