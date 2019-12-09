@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/Student/Desktop/HangManGame/HangManGame/HangManGame.csproj": {}
+    "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/HangManGame.csproj": {}
   },
   "projects": {
-    "/Users/Student/Desktop/HangManGame/HangManGame/HangManGame.csproj": {
+    "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/HangManGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/Student/Desktop/HangManGame/HangManGame/HangManGame.csproj",
+        "projectUniqueName": "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/HangManGame.csproj",
         "projectName": "HangManGame",
-        "projectPath": "/Users/Student/Desktop/HangManGame/HangManGame/HangManGame.csproj",
+        "projectPath": "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/HangManGame.csproj",
         "packagesPath": "/Users/Student/.nuget/packages/",
-        "outputPath": "/Users/Student/Desktop/HangManGame/HangManGame/obj/",
+        "outputPath": "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/obj/",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"

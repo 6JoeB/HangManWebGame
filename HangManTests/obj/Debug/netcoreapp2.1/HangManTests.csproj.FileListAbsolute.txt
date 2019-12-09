@@ -11,3 +11,8 @@
 /Users/Student/Desktop/HangManGame/HangManTests/obj/Debug/netcoreapp2.1/HangManTests.AssemblyInfo.cs
 /Users/Student/Desktop/HangManGame/HangManTests/obj/Debug/netcoreapp2.1/HangManTests.dll
 /Users/Student/Desktop/HangManGame/HangManTests/obj/Debug/netcoreapp2.1/HangManTests.pdb
+/Users/Student/Desktop/HangManGame/HangManWebGame/HangManTests/obj/Debug/netcoreapp2.1/HangManTests.csprojAssemblyReference.cache
+/Users/Student/Desktop/HangManGame/HangManWebGame/HangManTests/obj/Debug/netcoreapp2.1/HangManTests.AssemblyInfoInputs.cache
+/Users/Student/Desktop/HangManGame/HangManWebGame/HangManTests/obj/Debug/netcoreapp2.1/HangManTests.AssemblyInfo.cs
+/Users/Student/Desktop/HangManGame/HangManWebGame/HangManTests/obj/Debug/netcoreapp2.1/HangManTests.dll
+/Users/Student/Desktop/HangManGame/HangManWebGame/HangManTests/obj/Debug/netcoreapp2.1/HangManTests.pdb

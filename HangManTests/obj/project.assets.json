@@ -1611,6 +1611,16 @@
         "runtime": {
           "lib/netstandard1.3/System.Xml.XPath.XmlDocument.dll": {}
         }
+      },
+      "HangManGame/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v2.1",
+        "compile": {
+          "bin/placeholder/HangManGame.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/HangManGame.dll": {}
+        }
       }
     }
   },
@@ -5678,10 +5688,16 @@
         "system.xml.xpath.xmldocument.4.3.0.nupkg.sha512",
         "system.xml.xpath.xmldocument.nuspec"
       ]
+    },
+    "HangManGame/1.0.0": {
+      "type": "project",
+      "path": "../HangManGame/HangManGame.csproj",
+      "msbuildProject": "../HangManGame/HangManGame.csproj"
     }
   },
   "projectFileDependencyGroups": {
     ".NETCoreApp,Version=v2.1": [
+      "HangManGame >= 1.0.0",
       "Microsoft.NET.Test.Sdk >= 16.2.0",
       "Microsoft.NETCore.App >= 2.1.0",
       "NUnit3TestAdapter >= 3.13.0",
@@ -5695,11 +5711,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/Student/Desktop/HangManGame/HangManTests/HangManTests.csproj",
+      "projectUniqueName": "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManTests/HangManTests.csproj",
       "projectName": "HangManTests",
-      "projectPath": "/Users/Student/Desktop/HangManGame/HangManTests/HangManTests.csproj",
+      "projectPath": "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManTests/HangManTests.csproj",
       "packagesPath": "/Users/Student/.nuget/packages/",
-      "outputPath": "/Users/Student/Desktop/HangManGame/HangManTests/obj/",
+      "outputPath": "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManTests/obj/",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/local/share/dotnet/sdk/NuGetFallbackFolder"
@@ -5715,7 +5731,11 @@
       },
       "frameworks": {
         "netcoreapp2.1": {
-          "projectReferences": {}
+          "projectReferences": {
+            "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/HangManGame.csproj": {
+              "projectPath": "/Users/Student/Desktop/HangManGame/HangManWebGame/HangManGame/HangManGame.csproj"
+            }
+          }
         }
       },
       "warningProperties": {
