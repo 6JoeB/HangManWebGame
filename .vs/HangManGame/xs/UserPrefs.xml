@@ -1,9 +1,8 @@
 ﻿<Properties StartupConfiguration="{9BBE36F1-7024-4A95-840A-3300AC7B3540}|Default">
   <MonoDevelop.Ide.ItemProperties.HangManGame PreferredExecutionTarget="/Applications/Google Chrome.app" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="HangManTests/UnitTests/GameModelTest.cs">
+  <MonoDevelop.Ide.Workbench>
     <Files>
-      <File FileName="HangManGame/Models/Game.cs" Line="8" Column="29" />
-      <File FileName="HangManTests/UnitTests/GameModelTest.cs" Line="17" Column="1" NotebookId="1" />
+      <File FileName="HangManGame/Models/Game.cs" Line="33" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,11 +15,7 @@
                 <Node name="css" expanded="True" />
               </Node>
             </Node>
-            <Node name="HangManTests" expanded="True">
-              <Node name="UnitTests" expanded="True">
-                <Node name="GameModelTest.cs" selected="True" />
-              </Node>
-            </Node>
+            <Node name="HangManTests" expanded="True" />
           </Node>
         </State>
       </Pad>

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Linq;
+
 namespace HangManGame.Models
 
 {
@@ -11,22 +13,39 @@ namespace HangManGame.Models
         public int NumberOfGuesses;
         public string Guess { get; set; }
 
-        public static Game GetGuess(string guess)
+        public void GetGuess(string guess)
         {
             Guess = guess;
         }
 
-        public static Game CheckGuess()
+        public void CheckGuess(string guess)
         {
-            switch()
+            var splitWord = Word.Split(new string[] { "" }, StringSplitOptions.None);
+
+            if (guess != null)
             {
-                case ((!Game.LettersCorrectlyGuessed.Contains(Game.Guess)) || (!LettersIncorrectlyGuessed.Contains(Guess)))
-                {
-                    break;
+                if ((!LettersCorrectlyGuessed.Contains(guess)) || (!LettersIncorrectlyGuessed.Contains(guess)))
+                { 
+                    if (splitWord.Contains(Guess))
+                        {
+                        LettersCorrectlyGuessed.Append(guess);
+                        }
+                    else if (Word.Contains(guess))
+                        {
+                        
+                        }
+                    else
+                        {
+                        LettersIncorrectlyGuessed.Append(guess);
+                        }
+                        
                 }
             }
+            else {
+                Console.WriteLine("Please enter valid guess");
+            }
+
         }
 
     }
-
 }
