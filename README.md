@@ -7,7 +7,7 @@ Makers academy final project.
 User Stories
 -----
 
-As a user, I want to be able to start a game of hangman
+1. As a user, I want to be able to start a game of hangman
 
 As a user, when playing against the computer, I want to select a difficulty level
 
