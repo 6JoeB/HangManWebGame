@@ -15,7 +15,7 @@ User Stories
 
 4. As a user, I want my correctly guessed letters to be displayed as part of the word
 
-As a user, I want incorrectly guessed letters to be displayed
+5. As a user, I want incorrectly guessed letters to be displayed
 
 As a user, I want to be stopped from guessing the same letter twice
 
