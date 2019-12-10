@@ -23,7 +23,7 @@ User Stories
 
 8. As a user, if I use up all my lives, I want to see that I’ve lost the game
 
-As a user, if I guess all of the letters correctly, I want to be told that I’ve won
+9. As a user, if I guess all of the letters correctly, I want to be told that I’ve won
 
 As a user, I want to be able to see how long the word I'm guessing is
 
