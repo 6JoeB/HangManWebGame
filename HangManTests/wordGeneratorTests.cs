@@ -5,17 +5,18 @@ namespace HangManTests
 {
     public class Tests
     {
-        public Play play; 
+       
+        public wordGenerator wordGenerator; 
         [SetUp]
         public void Setup()
         {
-           play = new Play();
+           wordGenerator = new wordGenerator();
         }
 
         [Test]
         public void CheckForArray()
         {
-            Assert.That(play.words, Is.Not.Empty);
+            Assert.That(wordGenerator.words, Is.Not.Empty);
         }
     }
 }
