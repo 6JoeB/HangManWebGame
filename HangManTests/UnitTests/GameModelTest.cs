@@ -1,6 +1,8 @@
 ﻿using System;
 using NUnit.Framework;
 using HangManGame.Models;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace HangManTests
 
@@ -11,9 +13,9 @@ namespace HangManTests
         Game game;
 
         string word = "test";
-        string[] lettersAvailable = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-        string[] lettersCorrectlyGuessed = { };
-        string[] lettersIncorrectlyGuessed = { };
+        List<string> lettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
+        List<string> correctlyGuessed = new List<string>();
+        List<string> incorrectlyGuessed = new List<string>();
         int numberOfGuesses;
         string guess = "";
 
@@ -24,8 +26,8 @@ namespace HangManTests
             {
                 Word = word,
                 LettersAvailable = lettersAvailable,
-                LettersCorrectlyGuessed = lettersCorrectlyGuessed,
-                LettersIncorrectlyGuessed = lettersIncorrectlyGuessed,
+                CorrectlyGuessed = correctlyGuessed,
+                IncorrectlyGuessed = incorrectlyGuessed,
                 NumberOfGuesses = numberOfGuesses,
                 Guess = guess
             };
@@ -52,13 +54,13 @@ namespace HangManTests
         [Test]
         public void GameHasLettersCorrectlyGuessed()
         {
-            Assert.AreEqual(game.LettersCorrectlyGuessed, lettersCorrectlyGuessed);
+            Assert.AreEqual(game.CorrectlyGuessed, correctlyGuessed);
         }
 
         [Test]
         public void GameHasLettersIncorrectlyGuessed()
         {
-            Assert.AreEqual(game.LettersIncorrectlyGuessed, lettersIncorrectlyGuessed);
+            Assert.AreEqual(game.IncorrectlyGuessed, incorrectlyGuessed);
         }
 
         [Test]
