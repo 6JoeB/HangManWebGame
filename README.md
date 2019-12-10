@@ -37,7 +37,7 @@ User Stories
 
 15. As a user, I want the computer to pick a random word for me to guess
 
-As a user, I want to be able to play against a human player who can pick a word for me to guess, and confirm if my answers are correct or not
+16. As a user, I want to be able to play against a human player who can pick a word for me to guess, and confirm if my answers are correct or not
 
 
 -----
