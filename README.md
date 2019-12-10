@@ -13,7 +13,7 @@ User Stories
 
 3. As a user, I want to be able to guess a letter, and be told if my guess is correct or not
 
-As a user, I want my correctly guessed letters to be displayed as part of the word
+4. As a user, I want my correctly guessed letters to be displayed as part of the word
 
 As a user, I want incorrectly guessed letters to be displayed
 
