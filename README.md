@@ -31,7 +31,7 @@ User Stories
 
 12. As a user, I want to be able to see my current status in the game
 
-As a user, I want to be able to sign into the game
+13. As a user, I want to be able to sign into the game
 
 As a user, if signed in, I want the game to save my win/loss record
 
