@@ -16,37 +16,8 @@ namespace HangManTests
         [Test]
         public void CheckForArray()
         {
-            Assert.That(wordGenerator.words, Is.Not.Empty);
-        }
-
-        [Test]
-        public void CheckArrayContents()
-        {
-            Assert.AreEqual(wordGenerator.words[0], "red");
+            var result = wordGenerator.randomWordGetter();
+            Assert.IsInstanceOf(typeof(string), result);
         }
     }
 }
-
-
-
-
-
-/*
-
-        [SetUp]
-public void Setup()
-{
-    bankAccount = new BankAccount();
-}
-// Above setups up and makes bank account for each tests, like let. 
-
-[Test]
-public void BankAccount_HasBalance_Of0()
-{
-    //Arrange 
-    //Act
-    //Assert 
-    Assert.That(bankAccount.Balance == 0);
-}
-
-*/

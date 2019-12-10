@@ -7,7 +7,12 @@ namespace HangManGame.Models
 {
     public class wordGenerator
     {
-       public string[] words = { "red", "green", "blue", "pink" };
-
+        public static string randomWordGetter()
+        {
+            string[] words = { "red", "green", "blue", "purple", "pink" };
+            Random rand = new Random();
+            int index = rand.Next(words.Length);
+            return words[index];
+        }
     }
 }
