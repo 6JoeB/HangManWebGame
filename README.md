@@ -29,7 +29,7 @@ User Stories
 
 11. As a user, I want to try to guess the entire word at any time
 
-As a user, I want to be able to see my current status in the game
+12. As a user, I want to be able to see my current status in the game
 
 As a user, I want to be able to sign into the game
 
