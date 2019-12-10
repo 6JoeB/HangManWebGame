@@ -27,7 +27,7 @@ User Stories
 
 10. As a user, I want to be able to see how long the word I'm guessing is
 
-As a user, I want to try to guess the entire word at any time
+11. As a user, I want to try to guess the entire word at any time
 
 As a user, I want to be able to see my current status in the game
 
