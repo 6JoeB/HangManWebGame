@@ -19,7 +19,7 @@ User Stories
 
 6. As a user, I want to be stopped from guessing the same letter twice
 
-As a user, I want my incorrect guesses to reduce my lives
+7. As a user, I want my incorrect guesses to reduce my lives
 
 As a user, if I use up all my lives, I want to see that I’ve lost the game
 
