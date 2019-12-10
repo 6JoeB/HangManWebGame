@@ -71,7 +71,7 @@ namespace HangManTests
         public void GameCanTakeGuess()
         {
             game.GetGuess("a");
-            Assert.AreEqual(game.Guess, guess);
+            Assert.AreEqual(game.Guess, "a");
         }
 }
 }

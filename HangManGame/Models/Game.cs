@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace HangManGame.Models
@@ -7,11 +8,12 @@ namespace HangManGame.Models
     public class Game
     {
         public string Word { get; set; }
-        public string[] LettersAvailable = { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" };
-        public string[] LettersCorrectlyGuessed = { };
-        public string[] LettersIncorrectlyGuessed = { };
+        List<string> LettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
+        List<string> CorrectlyGuessed = new List<string>(new string[] { });
+        List<string> IncorrectlyGuessed = new List<string>(new string[] { });
         public int NumberOfGuesses;
         public string Guess { get; set; }
+        public bool win;
 
         public void GetGuess(string guess)
         {
@@ -22,21 +24,23 @@ namespace HangManGame.Models
         {
             var splitWord = Word.Split(new string[] { "" }, StringSplitOptions.None);
 
-            if (guess != null)
+            if (guess != null) //guess cannot be empty
             {
-                if ((!LettersCorrectlyGuessed.Contains(guess)) || (!LettersIncorrectlyGuessed.Contains(guess)))
-                { 
-                    if (splitWord.Contains(Guess))
+                if ((!CorrectlyGuessed.Contains(guess)) || (!IncorrectlyGuessed.Contains(guess))) //checks if guess has already been guessed
+                {
+                    NumberOfGuesses += 1;
+                    if (splitWord.Contains(Guess)) //checking if word has letter being guessed
                         {
-                        LettersCorrectlyGuessed.Append(guess);
+                        int index = 
+                        CorrectlyGuessed.Insert(index, guess);
                         }
-                    else if (Word.Contains(guess))
+                    else if (Word.Contains(guess)) //checking if word guessed is secret word
                         {
-                        
+                        win = true;
                         }
-                    else
+                    else //if guess is not correct
                         {
-                        LettersIncorrectlyGuessed.Append(guess);
+                        IncorrectlyGuessed.Append(guess);
                         }
                         
                 }
