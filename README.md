@@ -21,7 +21,7 @@ User Stories
 
 7. As a user, I want my incorrect guesses to reduce my lives
 
-As a user, if I use up all my lives, I want to see that I’ve lost the game
+8. As a user, if I use up all my lives, I want to see that I’ve lost the game
 
 As a user, if I guess all of the letters correctly, I want to be told that I’ve won
 
