@@ -18,6 +18,12 @@ namespace HangManTests
         {
             Assert.That(wordGenerator.words, Is.Not.Empty);
         }
+
+        [Test]
+        public void CheckArrayContents()
+        {
+            Assert.AreEqual(wordGenerator.words[0], "red");
+        }
     }
 }
 
