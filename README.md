@@ -25,7 +25,7 @@ User Stories
 
 9. As a user, if I guess all of the letters correctly, I want to be told that I’ve won
 
-As a user, I want to be able to see how long the word I'm guessing is
+10. As a user, I want to be able to see how long the word I'm guessing is
 
 As a user, I want to try to guess the entire word at any time
 
