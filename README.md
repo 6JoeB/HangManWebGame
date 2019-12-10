@@ -9,7 +9,7 @@ User Stories
 
 1. As a user, I want to be able to start a game of hangman
 
-As a user, when playing against the computer, I want to select a difficulty level
+2. As a user, when playing against the computer, I want to select a difficulty level
 
 As a user, I want to be able to guess a letter, and be told if my guess is correct or not
 
