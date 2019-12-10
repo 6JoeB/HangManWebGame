@@ -17,7 +17,7 @@ User Stories
 
 5. As a user, I want incorrectly guessed letters to be displayed
 
-As a user, I want to be stopped from guessing the same letter twice
+6. As a user, I want to be stopped from guessing the same letter twice
 
 As a user, I want my incorrect guesses to reduce my lives
 
