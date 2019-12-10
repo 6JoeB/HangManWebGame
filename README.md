@@ -33,7 +33,7 @@ User Stories
 
 13. As a user, I want to be able to sign into the game
 
-As a user, if signed in, I want the game to save my win/loss record
+14. As a user, if signed in, I want the game to save my win/loss record
 
 As a user, I want the computer to pick a random word for me to guess
 
