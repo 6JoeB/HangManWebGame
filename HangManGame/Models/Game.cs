@@ -37,28 +37,29 @@ namespace HangManGame.Models
                 if ((!CorrectlyGuessed.Contains(Guess)) || (!IncorrectlyGuessed.Contains(Guess))) //checks if guess has already been guessed
                 {
                     if (splitWord.Contains(Guess)) //checking if word has letter being guessed
-                        { 
-                            for(int i = 0; i < splitWord.Length; i++)
+                    {
+                        for (int i = 0; i < splitWord.Length; i++)
+                        {
+                            if (splitWord[i] == Guess)
                             {
-                                if(splitWord[i] == Guess)
-                                {
-                                    CorrectlyGuessed[i] = Guess;
-                                }
-                            }   
+                                CorrectlyGuessed[i] = Guess;
+                            }
                         }
+                    }
                     else if (Word.Contains(Guess)) //checking if word guessed is secret word
-                        {
+                    {
                         Win = true;
-                        }
+                    }
                     else //if guess is not correct
-                        {
+                    {
                         NumberOfGuesses += 1;
                         IncorrectlyGuessed.Append(Guess);
-                        }
-                        
+                    }
+
                 }
             }
-            else {
+            else
+            {
                 Console.WriteLine("Please enter valid guess");
             }
 

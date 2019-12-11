@@ -33,5 +33,12 @@ namespace HangManTests
         {
             Assert.AreEqual(player.Name, name);
         }
+
+        [Test]
+        public void PlayerCanRegister()
+        {
+            Player newPlayer = Player.Register(name);
+            Assert.That(newPlayer, Is.InstanceOf<Player>());
+        }
     }
 }

@@ -75,5 +75,5 @@ namespace HangManTests
             game.GetGuess("a");
             Assert.AreEqual(game.Guess, "a");
         }
-}
+    }
 }
