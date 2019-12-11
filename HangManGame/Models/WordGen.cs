@@ -18,9 +18,19 @@ namespace HangManGame.Models
 
         public static string TextFileWordGetter()
         {
-            string[] lines = File.ReadAllLines(@"..\..\..\..\HangManTextFiles\wordsOne.txt");
-            string word = lines[new Random().Next(lines.Length)];
-            return word;
+            OperatingSystem os = Environment.OSVersion;
+            PlatformID pid = os.Platform;
+            switch (pid)
+            {
+                case PlatformID.Win32NT:
+                    string[] lines = File.ReadAllLines(@"..\..\..\..\HangManTextFiles\wordsOne.txt");
+                    string word = lines[new Random().Next(lines.Length)];
+                    return word;
+                default:
+                    string[] linesMac = File.ReadAllLines(@"../../../../HangManTextFiles/wordsOne.txt");
+                    string wordMac = linesMac[new Random().Next(linesMac.Length)];
+                    return wordMac;
+            }
         }
     }
 }
