@@ -14,6 +14,8 @@ namespace HangManGame.Controllers
 
         public IActionResult Index()
         {
+            HttpContext.Session.SetString("test", "this is a session test");
+            HttpContext.Session.GetString
             return View();
         }
 
@@ -33,6 +35,10 @@ namespace HangManGame.Controllers
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+        }
+    }
+}
+ ?? HttpContext.TraceIdentifier });
         }
     }
 }
