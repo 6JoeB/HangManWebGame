@@ -15,13 +15,14 @@ namespace HangManGame.Controllers
         public IActionResult Index()
         {
             HttpContext.Session.SetString("test", "this is a session test");
-            HttpContext.Session.GetString
             return View();
         }
 
         public IActionResult Profile()
         {
             ViewData["Message"] = "Your Profile page.";
+            HttpContext.Session.GetString("test");
+
 
             return View();
         }
@@ -38,7 +39,6 @@ namespace HangManGame.Controllers
         }
     }
 }
- ?? HttpContext.TraceIdentifier });
-        }
-    }
-}
+        
+    
+
