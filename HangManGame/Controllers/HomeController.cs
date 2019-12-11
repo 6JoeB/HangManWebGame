@@ -37,6 +37,20 @@ namespace HangManGame.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpPost] 
+        public IActionResult saveUsername([FromForm] string username
+            )
+        {
+            return "Happy code is happy!"; 
+           /* try
+            {
+                if (string.IsNullOrEmpty(username))
+                {
+                    throw new Exception();
+                }
+            }*/ 
+        }
     }
 }
         
