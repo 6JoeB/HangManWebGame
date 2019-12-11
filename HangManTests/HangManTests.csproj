@@ -23,4 +23,7 @@
     <None Remove="UnitTests\GameModelTests.json" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="PlayerModelTest.cs" />
+  </ItemGroup>
 </Project>
