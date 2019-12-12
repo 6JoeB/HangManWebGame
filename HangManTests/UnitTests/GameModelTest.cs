@@ -77,14 +77,15 @@ namespace HangManTests
             Assert.AreEqual("a", game.Guess);
         }
 
-        /*[Test]
+        [Test]
          public void GameChecksGuessNotNull()
          {
-             guess = null;
-             game.GetGuess(guess);
-             Assert.AreEqual(false, game.CheckGuess());
+            var error = Assert.Throws<InvalidOperationException>(() => game.CheckGuess());
+            guess = null;
+            game.GetGuess(guess);
+            game.CheckGuess();
+            Assert.That(error.Message, Is.EqualTo("Please enter a new letter to guess!"));  
          }
-         */
 
         [Test]
         public void GameChecksIfLetterGuessedIsInWord()

@@ -43,12 +43,7 @@ namespace HangManGame.Models
 }
 
 
-            /*char[] splitWord = Word.ToCharArray();
-            if (splitWord.Contains(Guess[0]))
-            {
-
-                splitWord[splitWord.IndexOf(Guess[0])] = Guess[0];
-            }
+            /*
             //test
             // _ _ _ _ 
             // Guess = 'e'
