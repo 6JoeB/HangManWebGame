@@ -35,11 +35,11 @@ namespace HangManGame.Controllers
         }
 
 
-        [HttpPost, ValidateAntiForgeryToken]
+        [HttpPost]
         public IActionResult Index(Player player)
         {
             HttpContext.Session.SetString("User", player.UserName);
-            return View("Index");
+            return RedirectToAction("Game", "Home");
         }
 
     }
