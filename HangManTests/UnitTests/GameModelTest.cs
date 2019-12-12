@@ -80,12 +80,11 @@ namespace HangManTests
         [Test]
          public void GameChecksGuessNotNull()
          {
-            var error = Assert.Throws<InvalidOperationException>(() => game.CheckGuess());
             guess = null;
             game.GetGuess(guess);
-            game.CheckGuess();
-            Assert.That(error.Message, Is.EqualTo("Please enter a new letter to guess!"));  
-         }
+            var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
+            Assert.That(error.Message, Is.EqualTo("Please enter a new letter to guess!"));
+        }
 
         [Test]
         public void GameChecksIfLetterGuessedIsInWord()

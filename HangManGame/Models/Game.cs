@@ -30,13 +30,20 @@ namespace HangManGame.Models
 
         public void CheckGuess()
         {
-            if (Word.Contains(Guess))
+            if (!string.IsNullOrWhiteSpace(Guess))
             {
-                CorrectlyGuessed.Add(Guess);
-            } 
-            else 
+                if (Word.Contains(Guess))
+                {
+                    CorrectlyGuessed.Add(Guess);
+                }
+                else
+                {
+                    IncorrectlyGuessed.Add(Guess);
+                }
+            }
+            else
             {
-                IncorrectlyGuessed.Add(Guess);
+                throw new ArgumentException("Please enter a new letter to guess!");
             }
         }
     }
