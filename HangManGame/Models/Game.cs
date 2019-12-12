@@ -30,13 +30,20 @@ namespace HangManGame.Models
 
         public void CheckGuess()
         {
+            CorrectlyGuessed.Add(Guess);
+        }
+    }
+}
+
+        /*public bool CheckGuess()
+        {
             var splitWord = Word.Split(new string[] { "" }, StringSplitOptions.None);
 
-            if (Guess != null) //guess cannot be empty
+            if (!string.IsNullOrWhiteSpace(Guess)) //guess cannot be empty or a space
             {
                 if ((!CorrectlyGuessed.Contains(Guess)) || (!IncorrectlyGuessed.Contains(Guess))) //checks if guess has already been guessed
                 {
-                    if (splitWord.Contains(Guess)) //checking if word has letter being guessed
+                    if (splitWord.Contains(Guess)) //checking if word or letter being guessed has letter being guessed
                     {
                         for (int i = 0; i < splitWord.Length; i++)
                         {
@@ -60,10 +67,9 @@ namespace HangManGame.Models
             }
             else
             {
-                Console.WriteLine("Please enter valid guess");
+                return false;
             }
-
+            return true;
         }
-
     }
-}
+}*/

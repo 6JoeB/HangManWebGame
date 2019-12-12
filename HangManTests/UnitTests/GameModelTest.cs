@@ -1,5 +1,6 @@
 ﻿using System;
 using NUnit.Framework;
+using NUnit.Framework.Constraints;
 using HangManGame.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -73,7 +74,52 @@ namespace HangManTests
         public void GameCanTakeGuess()
         {
             game.GetGuess("a");
-            Assert.AreEqual(game.Guess, "a");
+            Assert.AreEqual("a", game.Guess);
+        }
+
+        /*[Test]
+         public void GameChecksGuessNotNull()
+         {
+             guess = null;
+             game.GetGuess(guess);
+             Assert.AreEqual(false, game.CheckGuess());
+         }
+         */
+
+        [Test]
+        public void GameChecksIfLetterGuessedIsInWord()
+        {
+            int a = game.CorrectlyGuessed.Count;
+            game.GetGuess("t");
+            game.CheckGuess();
+            Assert.AreEqual(a + 1, game.CorrectlyGuessed.Count);
+        }
+
+        [Test]
+        public void GameDoesNotAddCorrectGuessToIncorrectList()
+        {
+            int a = game.IncorrectlyGuessed.Count;
+            game.GetGuess("t");
+            game.CheckGuess();
+            Assert.AreEqual(a, game.IncorrectlyGuessed.Count);
+        }
+
+        [Test]
+        public void GameChecksIfLetterGuessedIsNotInWord()
+        {
+            int a = game.IncorrectlyGuessed.Count;
+            game.GetGuess("r");
+            game.CheckGuess();
+            Assert.AreEqual(a + 1, game.IncorrectlyGuessed.Count);
+        }
+
+        [Test]
+        public void GameDoesNotAddIncorrectGuessToCorrectList()
+        {
+            int a = game.CorrectlyGuessed.Count;
+            game.GetGuess("r");
+            game.CheckGuess();
+            Assert.AreEqual(a + 1, game.CorrectlyGuessed.Count);
         }
     }
 }
