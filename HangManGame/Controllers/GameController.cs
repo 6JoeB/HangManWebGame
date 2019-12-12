@@ -9,7 +9,7 @@ using Microsoft.AspNetCore.Http;
 
 namespace HangManGame.Controllers
 {
-    public class HomeController : Controller
+    public class GameController : Controller
     {
 
         public IActionResult Index()
@@ -30,14 +30,14 @@ namespace HangManGame.Controllers
 
 
         [HttpPost]
-        public IActionResult Index(Player player)
+        public IActionResult Index(Game game)
         {
-            HttpContext.Session.SetString("User", player.UserName);
+            HttpContext.Session.SetString("Guess", game.Guess);
             return RedirectToAction("Game", "Home");
         }
 
     }
 }
-        
-    
+
+
 
