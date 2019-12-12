@@ -119,7 +119,7 @@ namespace HangManTests
             int a = game.CorrectlyGuessed.Count;
             game.GetGuess("r");
             game.CheckGuess();
-            Assert.AreEqual(a + 1, game.CorrectlyGuessed.Count);
+            Assert.AreEqual(a, game.CorrectlyGuessed.Count);
         }
     }
 }

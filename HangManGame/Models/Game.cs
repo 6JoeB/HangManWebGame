@@ -30,7 +30,40 @@ namespace HangManGame.Models
 
         public void CheckGuess()
         {
-            CorrectlyGuessed.Add(Guess);
+            if (Word.Contains(Guess))
+            {
+                CorrectlyGuessed.Add(Guess);
+            } 
+            else 
+            {
+                IncorrectlyGuessed.Add(Guess);
+            }
+        }
+    }
+}
+
+
+            /*char[] splitWord = Word.ToCharArray();
+            if (splitWord.Contains(Guess[0]))
+            {
+
+                splitWord[splitWord.IndexOf(Guess[0])] = Guess[0];
+            }
+            //test
+            // _ _ _ _ 
+            // Guess = 'e'
+            // _ e _ _ 
+
+
+        }
+            /*if (splitWord.Contains(Guess))
+            {
+                CorrectlyGuessed.Add(Guess);
+            }
+            else
+            {
+                IncorrectlyGuessed.Add(Guess);
+            }
         }
     }
 }
