@@ -20,9 +20,10 @@
 
 <div class="container">
     <p>Please enter your guess</p>
-    <form asp-action="Game" asp-controller="/">
+    <form asp-action="Game" asp-controller="/" method="post">
         <label asp-for="Guess"></label>
         <input asp-for="Guess" placeholder="Your guess goes here"/>
         <button type="submit" class="btn btn-primary">Submit</button>
+        @game.Guess
     </form>
 </div>
