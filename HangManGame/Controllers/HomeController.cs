@@ -33,7 +33,7 @@ namespace HangManGame.Controllers
         public IActionResult Index(Player player)
         {
             HttpContext.Session.SetString("User", player.UserName);
-            return RedirectToAction("Game", "Home");
+            return RedirectToAction("Index");
         }
 
     }

@@ -4,10 +4,13 @@
 
     @{
         ViewData["Title"] = "Hang Man Game";
+        string username = Context.Session.GetString("User");
+
+        Player player = Player.Register(username);
     }
 
 
-<form asp-action="Game" asp-controller="/">
+<form asp-action="Index" asp-controller="/" method="post">
     <label asp-for="UserName"></label>
     <input asp-for="UserName" placeholder="Your name goes here"/>
     <button type="submit" class="btn btn-primary">Submit</button>
