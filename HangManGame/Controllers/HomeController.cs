@@ -14,16 +14,12 @@ namespace HangManGame.Controllers
 
         public IActionResult Index()
         {
-            HttpContext.Session.SetString("test", "this is a session test");
-            return View();
+            return View("Index");
         }
 
         public IActionResult Profile()
         {
             ViewData["Message"] = "Your Profile page.";
-            HttpContext.Session.GetString("test");
-
-
             return View();
         }
 
@@ -38,19 +34,14 @@ namespace HangManGame.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [HttpPost] 
-        public IActionResult saveUsername([FromForm] string username
-            )
+
+        [HttpPost, ValidateAntiForgeryToken]
+        public IActionResult Index(Player player)
         {
-            return "Happy code is happy!"; 
-           /* try
-            {
-                if (string.IsNullOrEmpty(username))
-                {
-                    throw new Exception();
-                }
-            }*/ 
+            HttpContext.Session.SetString("User", player.UserName);
+            return View("Index");
         }
+
     }
 }
         

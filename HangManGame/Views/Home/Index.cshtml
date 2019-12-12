@@ -1,26 +1,23 @@
 ﻿@using Microsoft.AspNetCore.Http; 
-@using  HangManGame.Models; 
+@using  HangManGame.Models;
+@model HangManGame.Models.Player;
 
     @{
         ViewData["Title"] = "Hang Man Game";
-        Context.Session.GetString("test"); 
+        string username = Context.Session.GetString("User");
 
+        Player player = Player.Register(username);
     }
 
-    <h1>
-        @Context.Session.GetString("test");
-    </h1>
 
-
-    <div class="row">
-        <div class="col-md-3">
-            <form>
-                Enter a username: <input type="text" />
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-        </div>
-
-
-
-
-    </div>
+<form asp-action="Index" asp-controller="/">
+    <label asp-for="UserName"></label>
+    <input asp-for="UserName" placeholder="Your name goes here"/>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+<div>
+    <ul>
+        Hello
+    @player.UserName
+    </ul>
+</div>
