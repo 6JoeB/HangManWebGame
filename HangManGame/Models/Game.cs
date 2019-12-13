@@ -21,7 +21,7 @@ namespace HangManGame.Models
         public int Index;
 
         public void GetWord(string word)
-            //Gets word that player will be guessing
+        //Gets word that player will be guessing
         {
             Word = word;
         }
@@ -43,20 +43,29 @@ namespace HangManGame.Models
             Answer = answerBuilder.ToString();
         }
 
+        public void UpdateAnswer()
+        //Updates answer after a correct guess
+        {
+            int i = Word.IndexOf(Guess);
+            StringBuilder answerUpdater = new StringBuilder(Answer);
+            answerUpdater[i] = Guess[0];
+            Answer = answerUpdater.ToString();
+        }
+
         public void CheckGuess()
-            //Checks players guess has not already been guessed, and if it is correct or not
+        //Checks players guess has not already been guessed, and if it is correct or not
         {
             if (!string.IsNullOrWhiteSpace(Guess))
-                //Throws error if no letter entered to guess
+            //Throws error if no letter entered to guess
             {
                 if (!CorrectlyGuessed.Contains(Guess))
-                    //Checks letter guess is not already in the correctly guessed list
+                //Checks letter guess is not already in the correctly guessed list
                 {
                     if (!IncorrectlyGuessed.Contains(Guess))
                     //Checks letter guess is not already in the incorrectly guessed list
                     {
-                        //Adds letter to the correctly or incorrectly guessed list as needed
                         if (Word.Contains(Guess))
+                        //Adds letter to the correctly or incorrectly guessed list as needed
                         {
                             CorrectlyGuessed.Add(Guess);
                         }

@@ -108,6 +108,7 @@ namespace HangManTests
             guess = "e";
             game.GetGuess(guess);
             game.CheckGuess();
+            game.UpdateAnswer();
             Assert.AreEqual("_e__", game.Answer);
         }
 
