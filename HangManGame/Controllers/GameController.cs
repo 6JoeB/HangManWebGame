@@ -21,15 +21,6 @@ namespace HangManGame.Controllers
         {
             return View();
         }
-        public IActionResult gamePlay()
-        {
-            return View();
-        }
-
-        public string TestHello()
-        {
-            return "Hello";
-        }
 
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
@@ -41,9 +32,8 @@ namespace HangManGame.Controllers
         [HttpPost]
         public IActionResult Index(Game game)
         {
-            HttpContext.Session.SetString("guess", game.Guess);
+            HttpContext.Session.SetString("Guess", game.Guess);
             return RedirectToAction("Game");
-
         }
 
     }
