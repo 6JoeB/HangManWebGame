@@ -1,16 +1,17 @@
-﻿@using Microsoft.AspNetCore.Http; 
+﻿@using Microsoft.AspNetCore.Http;
 @using  HangManGame.Models;
 @model HangManGame.Models.Game;
 
-    @{
-        ViewData["Title"] = "Hang Man Game";
-        string guess = Context.Session.GetString("Guess");
-        string username = Context.Session.GetString("User");
+@{
+    ViewData["Title"] = "Hang Man Game";
+    string guess = Context.Session.GetString("Guess");
+    string username = Context.Session.GetString("User");
 
-        Player player = Player.Register(username);
-        Game game = new Game();
-        game.GetGuess(guess);
-    }
+    Player player = Player.Register(username);
+   Game game = new Game();
+  //  Game game = Game.Testing(guess);
+   game.GetGuess(guess);
+}
 
 
 
@@ -19,10 +20,11 @@
 </div>
 
 <div class="container">
-    <p>Please enter your guess</p>
-    <form asp-action="Game" asp-controller="/">
+    <p>Please enter your guess. This is Game/Index</p>
+    <form asp-action="/" asp-controller="" method="post">
         <label asp-for="Guess"></label>
-        <input asp-for="Guess" placeholder="Your guess goes here"/>
+        <input asp-for="Guess" placeholder="Your guess goes here" />
         <button type="submit" class="btn btn-primary">Submit</button>
+       You guessed :  @game.Guess
     </form>
 </div>
