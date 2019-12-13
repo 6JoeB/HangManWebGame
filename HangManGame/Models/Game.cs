@@ -9,7 +9,6 @@ namespace HangManGame.Models
     public class Game
     {
         public string Word { get; set; }
-        public string Answer;
         public List<string> LettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
         public List<string> CorrectlyGuessed = new List<string>();
         public List<string> IncorrectlyGuessed = new List<string>();
@@ -19,67 +18,52 @@ namespace HangManGame.Models
         public int MatchingIndex;
         public int Index;
 
-        public void GetWord(string word)
-            //Gets word that player will be guessing
-        {
-            Word = word;
-        }
-
         public void GetGuess(string guess)
-        //Gets letter that player is guessing is in the word
         {
             Guess = guess;
         }
 
-        public void GenerateAnswer()
+        public void GetWord(string word)
         {
-
+            Word = word;
         }
 
         public void CheckGuess()
-            //Checks players guess has not already been guessed, and if it is correct or not
         {
-            if (!string.IsNullOrWhiteSpace(Guess))
-                //Throws error if no letter entered to guess
+            var splitWord = Word.Split(new string[] { "" }, StringSplitOptions.None);
+
+            if (Guess != null) //guess cannot be empty
             {
-                if (!CorrectlyGuessed.Contains(Guess))
-                    //Checks letter guess is not already in the correctly guessed list
+                if ((!CorrectlyGuessed.Contains(Guess)) || (!IncorrectlyGuessed.Contains(Guess))) //checks if guess has already been guessed
                 {
-                    if (!IncorrectlyGuessed.Contains(Guess))
-                    //Checks letter guess is not already in the incorrectly guessed list
+                    if (splitWord.Contains(Guess)) //checking if word has letter being guessed
                     {
-                        //Adds letter to the correctly or incorrectly guessed list as needed
-                        if (Word.Contains(Guess))
+                        for (int i = 0; i < splitWord.Length; i++)
                         {
-                            CorrectlyGuessed.Add(Guess);
-                        }
-                        else
-                        {
-                            IncorrectlyGuessed.Add(Guess);
+                            if (splitWord[i] == Guess)
+                            {
+                                CorrectlyGuessed[i] = Guess;
+                            }
                         }
                     }
-                    else
+                    else if (Word.Contains(Guess)) //checking if word guessed is secret word
                     {
-                        throw new ArgumentException("That letter has already been guessed!");
+                        Win = true;
                     }
-                }
-                else
-                {
-                    throw new ArgumentException("That letter has already been guessed!");
+                    else //if guess is not correct
+                    {
+                        NumberOfGuesses += 1;
+                        IncorrectlyGuessed.Append(Guess);
+                    }
+
                 }
             }
             else
             {
-                throw new ArgumentException("Please enter a letter to guess!");
+                Console.WriteLine("Please enter valid guess");
             }
+
         }
+
     }
 }
-
-
-/*
-            //test
-            // _ _ _ _ 
-            // Guess = 'e'
-            // _ e _ _ 
-}*/
