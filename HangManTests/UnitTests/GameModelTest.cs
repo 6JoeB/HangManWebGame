@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 using HangManGame.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,6 @@ namespace HangManTests
         Game game;
 
         string word = "test";
-        string answer = "";
         List<string> lettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
         List<string> correctlyGuessed = new List<string>();
         List<string> incorrectlyGuessed = new List<string>();
@@ -27,7 +25,6 @@ namespace HangManTests
             game = new Game
             {
                 Word = word,
-                Answer = answer,
                 LettersAvailable = lettersAvailable,
                 CorrectlyGuessed = correctlyGuessed,
                 IncorrectlyGuessed = incorrectlyGuessed,
@@ -46,12 +43,6 @@ namespace HangManTests
         public void GameHasWord()
         {
             Assert.AreEqual(game.Word, word);
-        }
-
-        [Test]
-        public void GameHasAnswer()
-        {
-            Assert.AreEqual(game.Answer, answer);
         }
 
         [Test]
@@ -79,91 +70,10 @@ namespace HangManTests
         }
 
         [Test]
-        public void GameCreatesAnswerWithDashesEqualToLengthOfWord()
-        {
-            game.GenerateAnswer(word);
-            Assert.AreEqual(game.Answer.Length, game.Word.Length);
-        }
-
-        [Test]
         public void GameCanTakeGuess()
         {
             game.GetGuess("a");
-            Assert.AreEqual("a", game.Guess);
-        }
-
-        [Test]
-        public void GameChecksGuessNotNull()
-        {
-            guess = null;
-            game.GetGuess(guess);
-            var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
-            Assert.That(error.Message, Is.EqualTo("Please enter a letter to guess!"));
-        }
-
-        [Test]
-        public void GameChecksGuessNotAlreadyGuessed()
-        {
-            guess = "e";
-            game.GetGuess(guess);
-            game.CheckGuess();
-            guess = "e";
-            game.GetGuess(guess);
-            var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
-            Assert.That(error.Message, Is.EqualTo("That letter has already been guessed!"));
-        }
-
-        [Test]
-        public void GameChecksGuessNotEmpty()
-        {
-            game.GetGuess(guess);
-            var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
-            Assert.That(error.Message, Is.EqualTo("Please enter a letter to guess!"));
-        }
-
-        [Test]
-        public void GameChecksGuessNotBlankString()
-        {
-            guess = " ";
-            game.GetGuess(guess);
-            var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
-            Assert.That(error.Message, Is.EqualTo("Please enter a letter to guess!"));
-        }
-
-        [Test]
-        public void GameChecksIfLetterGuessedIsInWord()
-        {
-            int a = game.CorrectlyGuessed.Count;
-            game.GetGuess("t");
-            game.CheckGuess();
-            Assert.AreEqual(a + 1, game.CorrectlyGuessed.Count);
-        }
-
-        [Test]
-        public void GameDoesNotAddCorrectGuessToIncorrectGuessList()
-        {
-            int a = game.IncorrectlyGuessed.Count;
-            game.GetGuess("s");
-            game.CheckGuess();
-            Assert.AreEqual(a, game.IncorrectlyGuessed.Count);
-        }
-
-        [Test]
-        public void GameChecksIfLetterGuessedIsNotInWord()
-        {
-            int a = game.IncorrectlyGuessed.Count;
-            game.GetGuess("r");
-            game.CheckGuess();
-            Assert.AreEqual(a + 1, game.IncorrectlyGuessed.Count);
-        }
-
-        [Test]
-        public void GameDoesNotAddIncorrectGuessToCorrectList()
-        {
-            int a = game.CorrectlyGuessed.Count;
-            game.GetGuess("q");
-            game.CheckGuess();
-            Assert.AreEqual(a, game.CorrectlyGuessed.Count);
+            Assert.AreEqual(game.Guess, "a");
         }
     }
 }
