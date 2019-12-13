@@ -18,93 +18,62 @@ namespace HangManGame.Models
         public int MatchingIndex;
         public int Index;
 
-        public void GetGuess(string guess)
-        {
-            Guess = guess;
-        }
-
         public void GetWord(string word)
+            //Gets word that player will be guessing
         {
             Word = word;
         }
 
+        public void GetGuess(string guess)
+        //Gets letter that player is guessing is in the word
+        {
+            Guess = guess;
+        }
+
         public void CheckGuess()
+            //Checks players guess has not already been guessed, and if it is correct or not
         {
             if (!string.IsNullOrWhiteSpace(Guess))
+                //Throws error if no letter entered to guess
             {
-                if (Word.Contains(Guess))
+                if (!CorrectlyGuessed.Contains(Guess))
+                    //Checks letter guess is not already in the correctly guessed list
                 {
-                    CorrectlyGuessed.Add(Guess);
+                    if (!IncorrectlyGuessed.Contains(Guess))
+                    //Checks letter guess is not already in the incorrectly guessed list
+                    {
+                        //Adds letter to the correctly or incorrectly guessed list as needed
+                        if (Word.Contains(Guess))
+                        {
+                            CorrectlyGuessed.Add(Guess);
+                        }
+                        else
+                        {
+                            IncorrectlyGuessed.Add(Guess);
+                        }
+                    }
+                    else
+                    {
+                        throw new ArgumentException("That letter has already been guessed!");
+                    }
                 }
                 else
                 {
-                    IncorrectlyGuessed.Add(Guess);
+                    throw new ArgumentException("That letter has already been guessed!");
                 }
             }
             else
             {
-                throw new ArgumentException("Please enter a new letter to guess!");
+                throw new ArgumentException("Please enter a letter to guess!");
             }
         }
     }
 }
 
 
-            /*
+/*
             //test
             // _ _ _ _ 
             // Guess = 'e'
             // _ e _ _ 
-
-
-        }
-            /*if (splitWord.Contains(Guess))
-            {
-                CorrectlyGuessed.Add(Guess);
-            }
-            else
-            {
-                IncorrectlyGuessed.Add(Guess);
-            }
-        }
-    }
-}
-
-        /*public bool CheckGuess()
-        {
-            var splitWord = Word.Split(new string[] { "" }, StringSplitOptions.None);
-
-            if (!string.IsNullOrWhiteSpace(Guess)) //guess cannot be empty or a space
-            {
-                if ((!CorrectlyGuessed.Contains(Guess)) || (!IncorrectlyGuessed.Contains(Guess))) //checks if guess has already been guessed
-                {
-                    if (splitWord.Contains(Guess)) //checking if word or letter being guessed has letter being guessed
-                    {
-                        for (int i = 0; i < splitWord.Length; i++)
-                        {
-                            if (splitWord[i] == Guess)
-                            {
-                                CorrectlyGuessed[i] = Guess;
-                            }
-                        }
-                    }
-                    else if (Word.Contains(Guess)) //checking if word guessed is secret word
-                    {
-                        Win = true;
-                    }
-                    else //if guess is not correct
-                    {
-                        NumberOfGuesses += 1;
-                        IncorrectlyGuessed.Append(Guess);
-                    }
-
-                }
-            }
-            else
-            {
-                return false;
-            }
-            return true;
-        }
-    }
 }*/

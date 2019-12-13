@@ -78,12 +78,41 @@ namespace HangManTests
         }
 
         [Test]
-         public void GameChecksGuessNotNull()
-         {
+        public void GameChecksGuessNotNull()
+        {
             guess = null;
             game.GetGuess(guess);
             var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
-            Assert.That(error.Message, Is.EqualTo("Please enter a new letter to guess!"));
+            Assert.That(error.Message, Is.EqualTo("Please enter a letter to guess!"));
+        }
+
+        [Test]
+        public void GameChecksGuessNotAlreadyGuessed()
+        {
+            guess = "e";
+            game.GetGuess(guess);
+            game.CheckGuess();
+            guess = "e";
+            game.GetGuess(guess);
+            var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
+            Assert.That(error.Message, Is.EqualTo("That letter has already been guessed!"));
+        }
+
+        [Test]
+        public void GameChecksGuessNotEmpty()
+        {
+            game.GetGuess(guess);
+            var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
+            Assert.That(error.Message, Is.EqualTo("Please enter a letter to guess!"));
+        }
+
+        [Test]
+        public void GameChecksGuessNotBlankString()
+        {
+            guess = " ";
+            game.GetGuess(guess);
+            var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
+            Assert.That(error.Message, Is.EqualTo("Please enter a letter to guess!"));
         }
 
         [Test]
@@ -96,10 +125,10 @@ namespace HangManTests
         }
 
         [Test]
-        public void GameDoesNotAddCorrectGuessToIncorrectList()
+        public void GameDoesNotAddCorrectGuessToIncorrectGuessList()
         {
             int a = game.IncorrectlyGuessed.Count;
-            game.GetGuess("t");
+            game.GetGuess("s");
             game.CheckGuess();
             Assert.AreEqual(a, game.IncorrectlyGuessed.Count);
         }
@@ -117,7 +146,7 @@ namespace HangManTests
         public void GameDoesNotAddIncorrectGuessToCorrectList()
         {
             int a = game.CorrectlyGuessed.Count;
-            game.GetGuess("r");
+            game.GetGuess("q");
             game.CheckGuess();
             Assert.AreEqual(a, game.CorrectlyGuessed.Count);
         }
