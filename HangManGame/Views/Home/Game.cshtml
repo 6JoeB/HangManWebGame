@@ -18,6 +18,12 @@
     <h3> Welcome @player.UserName </h3>
 </div>
 
-
-<p> WILL This Page Work?!!!!!! This Should Be Displaying the Guess Entered : 
-    @game.Guess
+<div class="container">
+    <p>Please enter your guess</p>
+    <form asp-action="Game" asp-controller="/" method="post">
+        <label asp-for="Guess"></label>
+        <input asp-for="Guess" placeholder="Your guess goes here"/>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        @game.Guess
+    </form>
+</div>
