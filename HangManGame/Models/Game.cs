@@ -46,10 +46,15 @@ namespace HangManGame.Models
         public void UpdateAnswer()
         //Updates answer after a correct guess
         {
+            
             int i = Word.IndexOf(Guess);
             StringBuilder answerUpdater = new StringBuilder(Answer);
-            answerUpdater[i] = Guess[0];
-            Answer = answerUpdater.ToString();
+            while (i != -1)
+            {
+                answerUpdater[i] = Guess[0];
+                Answer = answerUpdater.ToString();
+                i = Word.IndexOf(Guess, i + 1);
+            }
         }
 
         public void CheckGuess()

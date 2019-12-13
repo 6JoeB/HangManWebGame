@@ -34,6 +34,8 @@ namespace HangManTests
                 NumberOfGuesses = numberOfGuesses,
                 Guess = guess
             };
+            game.CorrectlyGuessed.Clear();
+            game.IncorrectlyGuessed.Clear();
         }
 
         [Test]
@@ -113,6 +115,18 @@ namespace HangManTests
         }
 
         [Test]
+        public void CheckGameUpdatesAnswerWithMultipleLetters()
+        {
+            game.GenerateAnswer();
+            guess = "t";
+            game.GetGuess(guess);
+            game.CheckGuess();
+            game.UpdateAnswer();
+            Console.WriteLine(game.Answer);
+            Assert.AreEqual("t__t", game.Answer);
+        }
+
+        [Test]
         public void GameChecksGuessNotAlreadyGuessed()
         {
             guess = "x";
@@ -147,7 +161,7 @@ namespace HangManTests
         public void GameChecksIfLetterGuessedIsInWord()
         {
             int a = game.CorrectlyGuessed.Count;
-            game.GetGuess("t");
+            game.GetGuess("s");
             game.CheckGuess();
             Assert.AreEqual(a + 1, game.CorrectlyGuessed.Count);
         }
