@@ -81,7 +81,7 @@ namespace HangManTests
         [Test]
         public void GameCreatesAnswerWithDashesEqualToLengthOfWord()
         {
-            game.GenerateAnswer(word);
+            game.GenerateAnswer();
             Assert.AreEqual(game.Answer.Length, game.Word.Length);
         }
 
@@ -102,16 +102,28 @@ namespace HangManTests
         }
 
         [Test]
-        public void GameChecksGuessNotAlreadyGuessed()
+        public void CheckGameUpdatesAnswer()
         {
+            game.GenerateAnswer();
             guess = "e";
             game.GetGuess(guess);
             game.CheckGuess();
-            guess = "e";
+            Assert.AreEqual("_e__", game.Answer);
+        }
+
+        [Test]
+        public void GameChecksGuessNotAlreadyGuessed()
+        {
+            guess = "x";
+            game.GetGuess(guess);
+            game.CheckGuess();
+            guess = "x";
             game.GetGuess(guess);
             var error = Assert.Throws<ArgumentException>(() => game.CheckGuess());
             Assert.That(error.Message, Is.EqualTo("That letter has already been guessed!"));
         }
+
+        
 
         [Test]
         public void GameChecksGuessNotEmpty()

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using Microsoft.EntityFrameworkCore.Internal;
 
 namespace HangManGame.Models
@@ -32,8 +33,14 @@ namespace HangManGame.Models
         }
 
         public void GenerateAnswer()
+        //Creates string of dashes the same length as the word
         {
-
+            StringBuilder answerBuilder = new StringBuilder();
+            for (int i = 0; i < Word.Length; i++)
+            {
+                answerBuilder.Append("_");
+            }
+            Answer = answerBuilder.ToString();
         }
 
         public void CheckGuess()
@@ -75,11 +82,3 @@ namespace HangManGame.Models
         }
     }
 }
-
-
-/*
-            //test
-            // _ _ _ _ 
-            // Guess = 'e'
-            // _ e _ _ 
-}*/
