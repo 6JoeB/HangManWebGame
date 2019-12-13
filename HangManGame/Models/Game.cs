@@ -14,7 +14,7 @@ namespace HangManGame.Models
         public List<string> LettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
         public List<string> CorrectlyGuessed = new List<string>();
         public List<string> IncorrectlyGuessed = new List<string>();
-        public int NumberOfGuesses;
+        public int NumberOfGuesses { get; set; }
         public string Guess { get; set; }
         public bool Win;
         public int MatchingIndex;
