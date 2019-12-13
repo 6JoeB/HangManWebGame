@@ -17,11 +17,20 @@ namespace HangManGame.Models
         public bool Win;
         public int MatchingIndex;
         public int Index;
-
+        
         public void GetGuess(string guess)
         {
             Guess = guess;
         }
+        /*
+        public static Game Testing(string guess)
+        {
+            return new Game
+            {
+                Guess = guess
+            };
+        }
+        */ 
 
         public void GetWord(string word)
         {

@@ -8,8 +8,9 @@
     string username = Context.Session.GetString("User");
 
     Player player = Player.Register(username);
-    Game game = new Game();
-    game.GetGuess(guess);
+   Game game = new Game();
+  //  Game game = Game.Testing(guess);
+   game.GetGuess(guess);
 }
 
 
@@ -20,7 +21,7 @@
 
 <div class="container">
     <p>Please enter your guess. This is Game/Index</p>
-    <form asp-action="/gamePlay" asp-controller="Game" method="post">
+    <form asp-action="/" asp-controller="" method="post">
         <label asp-for="Guess"></label>
         <input asp-for="Guess" placeholder="Your guess goes here" />
         <button type="submit" class="btn btn-primary">Submit</button>

@@ -41,8 +41,9 @@ namespace HangManGame.Controllers
         [HttpPost]
         public IActionResult Index(Game game)
         {
-            HttpContext.Session.SetString("Guess", game.Guess);
+            HttpContext.Session.SetString("guess", game.Guess);
             return RedirectToAction("Game");
+
         }
 
     }
