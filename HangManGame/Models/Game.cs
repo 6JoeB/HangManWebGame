@@ -14,7 +14,7 @@ namespace HangManGame.Models
         public List<string> LettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
         public List<string> CorrectlyGuessed = new List<string>();
         public List<string> IncorrectlyGuessed = new List<string>();
-        public int NumberOfGuesses;
+        public int NumberOfGuesses = 10;
         public string Guess { get; set; }
         public bool Win;
         public int MatchingIndex;
@@ -27,21 +27,14 @@ namespace HangManGame.Models
             Word = word;
         }
 
-        /*public void SetDifficulty(string difficulty)
+        public void SetDifficulty(string difficulty)
         {
             if (difficulty == "hard")
             {
                 NumberOfGuesses = 5;
             }
-            else if (difficulty == "medium")
-            {
-                NumberOfGuesses = 10;
-            }
-            else if (difficulty == "easy")
-            {
-                NumberOfGuesses = 15;
-            }
-        }*/
+        }
+       
 
         public void GetGuess(string guess)
         //Gets letter that player is guessing is in the word
