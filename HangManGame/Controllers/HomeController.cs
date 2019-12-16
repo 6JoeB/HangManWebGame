@@ -5,28 +5,16 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HangManGame.Models;
+using Microsoft.AspNetCore.Http;
 
 namespace HangManGame.Controllers
 {
     public class HomeController : Controller
     {
+
         public IActionResult Index()
         {
-            return View();
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            return View("Index");
         }
 
         public IActionResult Privacy()
@@ -39,5 +27,17 @@ namespace HangManGame.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+
+        [HttpPost]
+        public IActionResult Index(Player player)
+        {
+            HttpContext.Session.SetString("User", player.UserName);
+            return RedirectToAction("Index", "Game");
+        }
+
     }
 }
+        
+    
+
