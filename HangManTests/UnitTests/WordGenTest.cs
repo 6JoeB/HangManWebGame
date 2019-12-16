@@ -3,9 +3,7 @@ using NUnit.Framework;
 
 namespace HangManTests
 {
-    [TestFixture]
-
-    class WordGenTests
+    public class Tests
     {
 
         public wordGenerator wordGenerator;
@@ -16,9 +14,9 @@ namespace HangManTests
         }
 
         [Test]
-        public void CheckForArray()
+        public void CheckRandomWordReturnedFromTextFile()
         {
-            var result = wordGenerator.randomWordGetter();
+            var result = wordGenerator.TextFileWordGetter();
             Assert.IsInstanceOf(typeof(string), result);
         }
     }

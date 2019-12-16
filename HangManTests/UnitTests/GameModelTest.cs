@@ -18,7 +18,6 @@ namespace HangManTests
         List<string> lettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
         List<string> correctlyGuessed = new List<string>();
         List<string> incorrectlyGuessed = new List<string>();
-        int numberOfGuesses;
         string guess = "";
 
         [SetUp]
@@ -31,7 +30,7 @@ namespace HangManTests
                 LettersAvailable = lettersAvailable,
                 CorrectlyGuessed = correctlyGuessed,
                 IncorrectlyGuessed = incorrectlyGuessed,
-                NumberOfGuesses = numberOfGuesses,
+
                 Guess = guess
             };
             game.CorrectlyGuessed.Clear();
@@ -74,17 +73,32 @@ namespace HangManTests
             Assert.AreEqual(game.IncorrectlyGuessed, incorrectlyGuessed);
         }
 
-        /*[Test]
-        public void GameCanSetDifficulty()
+        [Test]
+        public void GameCanSetDifficultyToHard()
         {
             game.SetDifficulty("hard");
-            Assert.AreEqual(numberOfGuesses, 5);
-        }*/
+            Assert.AreEqual(5, game.NumberOfGuesses);
+        }
+
+        [Test]
+        public void GameCanSetDifficultyToEasy()
+        {
+            game.SetDifficulty("easy");
+            Assert.AreEqual(15, game.NumberOfGuesses);
+        }
+
+        [Test]
+        public void GameCanSetDifficultyToMedium()
+        {
+            game.SetDifficulty("hard");
+            game.SetDifficulty("medium");
+            Assert.AreEqual(10, game.NumberOfGuesses);
+        }
 
         [Test]
         public void GameHasNumberOfGuesses()
         {
-            Assert.AreEqual(game.NumberOfGuesses, numberOfGuesses);
+            Assert.AreEqual(10, game.NumberOfGuesses);
         }
 
         [Test]
@@ -212,6 +226,22 @@ namespace HangManTests
             game.UpdateAnswer();
             game.CheckIfWon();
             Assert.AreEqual(true, game.Win);
+        }
+
+        [Test]
+        public void GameDeductsFromNumberOfGuesses()
+        {
+            int a = game.NumberOfGuesses;
+            game.ReduceNumberOfGuesses();
+            Assert.AreEqual(a-1, game.NumberOfGuesses);
+        }
+        [Test]
+        public void GameCanDeclaresOverIfAllGuessesUsed()
+        {
+            game.NumberOfGuesses = 1;
+            game.ReduceNumberOfGuesses();
+            game.GameOver();
+            Assert.AreEqual(true, game.Lose);
         }
     }
 }

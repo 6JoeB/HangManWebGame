@@ -14,9 +14,10 @@ namespace HangManGame.Models
         public List<string> LettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
         public List<string> CorrectlyGuessed { get; set; }
         public List<string> IncorrectlyGuessed { get; set; }
-        public int NumberOfGuesses;
+        public int NumberOfGuesses = 10;
         public string Guess { get; set; }
         public bool Win;
+        public bool Lose;
         public int MatchingIndex;
         public int Index;
 
@@ -31,13 +32,22 @@ namespace HangManGame.Models
         {
             Word = word;
         }
- 
-        /*public void SetDifficulty(string difficulty)
+
+        public void SetDifficulty(string difficulty)
         {
-            if (difficulty == "hard")
+            switch (difficulty)
             {
-                NumberOfGuesses = 5;
+                case "hard":
+                    NumberOfGuesses = 5;
+                    break;
+                case "medium":
+                    NumberOfGuesses = 10;
+                    break;
+                case "easy":
+                    NumberOfGuesses = 15;
+                    break;
             }
+        }
             else if (difficulty == "medium")
             {
                 NumberOfGuesses = 10;
@@ -47,7 +57,6 @@ namespace HangManGame.Models
                 NumberOfGuesses = 15;
             }
         }*/
- 
         public void GetGuess(string guess)
         //Gets letter that player is guessing is in the word
 
@@ -123,6 +132,21 @@ namespace HangManGame.Models
             if(Word == Answer)
             {
                 Win = true;
+            }
+        }
+
+        public void ReduceNumberOfGuesses()
+        {
+            NumberOfGuesses -= 1;
+        }
+
+        public void GameOver()
+        {
+            if (Word != Answer) {
+                if (NumberOfGuesses == 0)
+                {
+                    Lose = true;
+                } 
             }
         }
     }
