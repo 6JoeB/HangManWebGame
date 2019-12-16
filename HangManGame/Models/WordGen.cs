@@ -8,14 +8,6 @@ namespace HangManGame.Models
 {
     public class wordGenerator
     {
-        public static string RandomWordGetter()
-        {
-            string[] words = { "red", "green", "blue", "purple", "pink" };
-            Random rand = new Random();
-            int index = rand.Next(words.Length);
-            return words[index];
-        }
-
         public static string TextFileWordGetter()
         {
             OperatingSystem os = Environment.OSVersion;

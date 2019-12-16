@@ -14,13 +14,6 @@ namespace HangManTests
         }
 
         [Test]
-        public void CheckForArray()
-        {
-            var result = wordGenerator.RandomWordGetter();
-            Assert.IsInstanceOf(typeof(string), result);
-        }
-
-        [Test]
         public void CheckRandomWordReturnedFromTextFile()
         {
             var result = wordGenerator.TextFileWordGetter();
