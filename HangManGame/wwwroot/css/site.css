@@ -36,3 +36,64 @@ body {
     }
 }
 
+.leftaligned {
+    margin-left: 10% !important;
+}
+
+.aligned-left {
+    margin-left: 0 auto;
+}
+
+.bottonaligned {
+    margin-bottom: auto;
+}
+
+.navcolour {
+    background-color: #c5e5fc;
+}
+
+.navtext {
+    color: darkblue !important;
+    font-size: medium;
+}
+
+ul.nav a{
+    color: black !important;
+}
+
+ul.nav a:hover {
+    color: white !important;
+}
+
+.navtextblack {
+    color: black !important;
+}
+
+.centered {
+    width: 50%;
+    margin: 0 auto;
+}
+
+.username-card {
+background-color: #c5e5fc;
+margin-top: 5%;
+margin-bottom: 5%;
+padding-top: 3%;
+padding-left: 3%;
+padding-right: 3%;
+padding-bottom: 3%;
+border-radius: 2%;
+width: 350px;
+}
+
+.bodycard {
+}
+
+.username-input {
+    width: 280px;
+}
+
+.usernameinputtitle {
+    font-size: 112%;
+    padding-bottom: 2%;
+}

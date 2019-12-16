@@ -35,19 +35,10 @@ namespace HangManGame.Models
 
         public void SetDifficulty(string difficulty)
         {
-            switch (difficulty)
+            if (difficulty == "hard")
             {
-                case "hard":
-                    NumberOfGuesses = 5;
-                    break;
-                case "medium":
-                    NumberOfGuesses = 10;
-                    break;
-                case "easy":
-                    NumberOfGuesses = 15;
-                    break;
+                NumberOfGuesses = 5;
             }
-        }
             else if (difficulty == "medium")
             {
                 NumberOfGuesses = 10;
@@ -56,7 +47,8 @@ namespace HangManGame.Models
             {
                 NumberOfGuesses = 15;
             }
-        }*/
+        }
+
         public void GetGuess(string guess)
         //Gets letter that player is guessing is in the word
 

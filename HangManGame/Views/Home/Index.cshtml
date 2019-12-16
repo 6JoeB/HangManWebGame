@@ -12,10 +12,20 @@
         Player player = Player.Register(username);
     }
 
-
-<form asp-action="Index" asp-controller="/" method="post">
-    <label asp-for="UserName"></label>
-    <input asp-for="UserName" placeholder="Your name goes here"/>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form>
-
+<div class="container-fluid body-card">
+    <div class="container-fluid username-card">
+        <div class="col s8 offset-s2 z-depth-6 card-panel username-input">
+            <form asp-action="Index" asp-controller="/" method="post">
+                <div class="col s12">
+                    <div class="form-group">
+                        <label class="usernameinputtitle" asp-for="UserName" for="usernameinput">UserName</label>
+                        <input type="text" class="form-control username-input" asp-for="UserName" id="Username" aria-describedby="usernameinput" placeholder="Enter username here...">
+                    </div>
+                    <div>
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>

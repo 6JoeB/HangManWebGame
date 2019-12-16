@@ -66,9 +66,6 @@ namespace HangManGame.Controllers
             // Add logic so it only does this when the guess is correct
             game.CorrectlyGuessed.Add(game.Guess);
 
-            string CorrectlyGuessedLetters = String.Join("", game.CorrectlyGuessed.ToArray());
-            
-
             //HttpContext.Session.SetString("guess", game.Guess);
             //HttpContext.Session.SetInt32("remainingGuesses", game.NumberOfGuesses);
             //HttpContext.Session.SetString ("correctlyGuessed", CorrectlyGuessedLetters);
