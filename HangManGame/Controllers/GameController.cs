@@ -6,28 +6,37 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using HangManGame.Models;
 using Microsoft.AspNetCore.Http;
-
-
+using HangManGame.Logic;
 
 namespace HangManGame.Controllers
 {
     public class GameController : Controller
     {
+        [HttpGet]
         public IActionResult Index()
-        { 
-            return View("Index");
+        {
+            // Normally you would want to load / generate your word here
+            string word = "easy";
+            HttpContext.Session.SetString("word", word);
+            var model = new Guesses(word);
+
+            return View(model);
         }
 
-        public IActionResult InPlay(Game game)
+        [HttpPost]
+        public IActionResult Index(Guesses model)
         {
-            return View("Index", game);
+            var word = HttpContext.Session.GetString("word");
+            var game = new Game(word, Difficulty.Easy);
+
+            var guesses = new List<char>(model.PreviousGuesses) { model.Guess.Value };
+            var result = game.Guess(guesses);
+            var viewResult = new Guesses(game.Word, model.Guess, result);
+
+            return View(viewResult);
         }
 
         public IActionResult Privacy()
-        {
-            return View();
-        }
-        public IActionResult gamePlay()
         {
             return View();
         }
@@ -38,18 +47,6 @@ namespace HangManGame.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-        [HttpPost]
-        public IActionResult SubmitGuess(Game game)
-        {
-            // Add logic so it only does this when the guess is correct
-            game.CorrectlyGuessed.Add(game.Guess);
-            game.GetWord("easy");
-
-            return RedirectToAction("InPlay", game);  /// was redirect to action 
-            
-
-
-        }
 
     }
 }
