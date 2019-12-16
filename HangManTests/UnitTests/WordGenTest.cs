@@ -1,5 +1,6 @@
 ﻿using HangManGame.Models;
 using NUnit.Framework;
+using System;
 
 namespace HangManTests
 {
