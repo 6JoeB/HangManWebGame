@@ -14,10 +14,17 @@ namespace HangManGame.Controllers
     public class GameController : Controller
     {
 
-        public IActionResult Index()
+      /*  public IActionResult Index()
         {
+
+            HttpContext.Session.SetString("guess", game.Guess);
+
+            string guess = HttpContext.Session.GetString("Guess");
+            Console.WriteLine(guess);
+            Console.WriteLine("548375384578346578346578345349");
+
             return View("Index");
-        }
+        }*/ 
 
         public IActionResult Privacy()
         {
@@ -39,6 +46,8 @@ namespace HangManGame.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
+        
+
 
         [HttpPost]
         public IActionResult Index(Game game)
@@ -53,7 +62,9 @@ namespace HangManGame.Controllers
             HttpContext.Session.SetString("guess", game.Guess);
             HttpContext.Session.SetString("guess", game.Guess);
             HttpContext.Session.SetString("guess", game.Guess);
-            return RedirectToRoute("Game");  /// was redirect to action 
+            return Redirect("https://localhost:44326/Game/Index");  /// was redirect to action 
+            
+
 
         }
 
@@ -65,5 +76,6 @@ Correctly Guessed Letters _ _ _ _
 Letters Available
 Incorrect Guesses
 Win or Loose messege
+whats being set/ read out 
 */ 
 
