@@ -17,6 +17,7 @@ namespace HangManGame.Models
         public int NumberOfGuesses = 10;
         public string Guess { get; set; }
         public bool Win;
+        public bool Lose;
         public int MatchingIndex;
         public int Index;
         
@@ -115,7 +116,17 @@ namespace HangManGame.Models
 
         public void ReduceNumberOfGuesses()
         {
-            throw new NotImplementedException();
+            NumberOfGuesses -= 1;
+        }
+
+        public void GameOver()
+        {
+            if (Word != Answer) {
+                if (NumberOfGuesses == 0)
+                {
+                    Lose = true;
+                } 
+            }
         }
     }
 }

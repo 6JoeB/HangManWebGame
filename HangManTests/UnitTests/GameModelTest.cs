@@ -220,13 +220,13 @@ namespace HangManTests
             game.ReduceNumberOfGuesses();
             Assert.AreEqual(a-1, game.NumberOfGuesses);
         }
-        /*[Test]
+        [Test]
         public void GameCanDeclaresOverIfAllGuessesUsed()
         {
-            game.GenerateAnswer();
             game.NumberOfGuesses = 1;
-            game.GetGuess("r");
-            game.
-        }*/
+            game.ReduceNumberOfGuesses();
+            game.GameOver();
+            Assert.AreEqual(true, game.Lose);
+        }
     }
 }
