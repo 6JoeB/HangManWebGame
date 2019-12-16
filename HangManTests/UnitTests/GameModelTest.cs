@@ -30,7 +30,7 @@ namespace HangManTests
                 LettersAvailable = lettersAvailable,
                 CorrectlyGuessed = correctlyGuessed,
                 IncorrectlyGuessed = incorrectlyGuessed,
-                
+
                 Guess = guess
             };
             game.CorrectlyGuessed.Clear();
@@ -212,5 +212,21 @@ namespace HangManTests
             game.CheckIfWon();
             Assert.AreEqual(true, game.Win);
         }
+
+        [Test]
+        public void GameDeductsFromNumberOfGuesses()
+        {
+            int a = game.NumberOfGuesses;
+            game.ReduceNumberOfGuesses();
+            Assert.AreEqual(a-1, game.NumberOfGuesses);
+        }
+        /*[Test]
+        public void GameCanDeclaresOverIfAllGuessesUsed()
+        {
+            game.GenerateAnswer();
+            game.NumberOfGuesses = 1;
+            game.GetGuess("r");
+            game.
+        }*/
     }
 }

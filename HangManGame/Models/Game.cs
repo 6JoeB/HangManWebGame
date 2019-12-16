@@ -112,5 +112,10 @@ namespace HangManGame.Models
                 Win = true;
             }
         }
+
+        public void ReduceNumberOfGuesses()
+        {
+            throw new NotImplementedException();
+        }
     }
 }
