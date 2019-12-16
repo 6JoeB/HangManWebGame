@@ -7,6 +7,8 @@ using Microsoft.AspNetCore.Mvc;
 using HangManGame.Models;
 using Microsoft.AspNetCore.Http;
 
+
+
 namespace HangManGame.Controllers
 {
     public class GameController : Controller
@@ -41,13 +43,27 @@ namespace HangManGame.Controllers
         [HttpPost]
         public IActionResult Index(Game game)
         {
+
+            string CorrectlyGuessedLetters = String.Join("", game.CorrectlyGuessed.ToArray());
+            
+
             HttpContext.Session.SetString("guess", game.Guess);
-            return RedirectToAction("Game");
+            HttpContext.Session.SetInt32("remainingGuesses", game.NumberOfGuesses);
+            HttpContext.Session.SetString ("correctlyGuessed", CorrectlyGuessedLetters);
+            HttpContext.Session.SetString("guess", game.Guess);
+            HttpContext.Session.SetString("guess", game.Guess);
+            HttpContext.Session.SetString("guess", game.Guess);
+            return RedirectToRoute("Game");  /// was redirect to action 
 
         }
 
     }
 }
-
-
+/*
+Guesses Ramaining
+Correctly Guessed Letters _ _ _ _
+Letters Available
+Incorrect Guesses
+Win or Loose messege
+*/ 
 
