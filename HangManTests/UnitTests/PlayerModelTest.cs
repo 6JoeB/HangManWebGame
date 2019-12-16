@@ -17,7 +17,7 @@ namespace HangManTests
         {
             player = new Player
             {
-                Name = name
+               UserName = name
             };
         }
 
@@ -31,7 +31,7 @@ namespace HangManTests
         [Test]
         public void PlayerHasName()
         {
-            Assert.AreEqual(player.Name, name);
+            Assert.AreEqual(player.UserName, name);
         }
 
         [Test]

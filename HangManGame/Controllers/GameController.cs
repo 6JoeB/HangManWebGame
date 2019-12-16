@@ -13,18 +13,29 @@ namespace HangManGame.Controllers
 {
     public class GameController : Controller
     {
-
-      /*  public IActionResult Index()
+        public IActionResult Index()
         {
 
-            HttpContext.Session.SetString("guess", game.Guess);
+            //HttpContext.Session.SetString("guess", game.Guess);
 
             string guess = HttpContext.Session.GetString("Guess");
             Console.WriteLine(guess);
             Console.WriteLine("548375384578346578346578345349");
 
             return View("Index");
-        }*/ 
+        }
+
+        public IActionResult InPlay(Game game)
+        {
+           
+           //HttpContext.Session.SetString("guess", game.Guess);
+
+            string guess = HttpContext.Session.GetString("Guess");
+            Console.WriteLine(guess);
+            Console.WriteLine("548375384578346578346578345349");
+
+            return View("Index", game);
+        }
 
         public IActionResult Privacy()
         {
@@ -50,19 +61,23 @@ namespace HangManGame.Controllers
 
 
         [HttpPost]
-        public IActionResult Index(Game game)
+        public IActionResult SubmitGuess(Game game)
         {
+            // Add logic so it only does this when the guess is correct
+            game.CorrectlyGuessed.Add(game.Guess);
 
             string CorrectlyGuessedLetters = String.Join("", game.CorrectlyGuessed.ToArray());
             
 
-            HttpContext.Session.SetString("guess", game.Guess);
-            HttpContext.Session.SetInt32("remainingGuesses", game.NumberOfGuesses);
-            HttpContext.Session.SetString ("correctlyGuessed", CorrectlyGuessedLetters);
-            HttpContext.Session.SetString("guess", game.Guess);
-            HttpContext.Session.SetString("guess", game.Guess);
-            HttpContext.Session.SetString("guess", game.Guess);
-            return Redirect("https://localhost:44326/Game/Index");  /// was redirect to action 
+            //HttpContext.Session.SetString("guess", game.Guess);
+            //HttpContext.Session.SetInt32("remainingGuesses", game.NumberOfGuesses);
+            //HttpContext.Session.SetString ("correctlyGuessed", CorrectlyGuessedLetters);
+            //HttpContext.Session.SetString("guess", game.Guess);
+            //HttpContext.Session.SetString("guess", game.Guess);
+            //HttpContext.Session.SetString("guess", game.Guess);
+
+
+            return RedirectToAction("InPlay", game);  /// was redirect to action 
             
 
 

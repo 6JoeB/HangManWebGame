@@ -12,14 +12,18 @@ namespace HangManGame.Models
         public string Word { get; set; }
         public string Answer;
         public List<string> LettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
-        public List<string> CorrectlyGuessed = new List<string>();
+        public List<string> CorrectlyGuessed { get; set; }
         public List<string> IncorrectlyGuessed = new List<string>();
         public int NumberOfGuesses;
         public string Guess { get; set; }
         public bool Win;
         public int MatchingIndex;
         public int Index;
-       
+
+        public Game()
+        {
+            CorrectlyGuessed = new List<string>();
+        }
  
         public void GetWord(string word)
         //Gets word that player will be guessing
@@ -45,6 +49,7 @@ namespace HangManGame.Models
  
         public void GetGuess(string guess)
         //Gets letter that player is guessing is in the word
+
         {
             Guess = guess;
         }
