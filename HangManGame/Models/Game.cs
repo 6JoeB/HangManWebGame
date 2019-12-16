@@ -111,5 +111,13 @@ namespace HangManGame.Models
                 throw new ArgumentException("Please enter a letter to guess!");
             }
         }
+
+        public void CheckIfWon()
+        {
+            if(Word == Answer)
+            {
+                Win = true;
+            }
+        }
     }
 }

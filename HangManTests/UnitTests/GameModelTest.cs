@@ -201,19 +201,17 @@ namespace HangManTests
         }
 
         [Test]
-        public void GameChecksIfPlayerHasWon()
+        public void GameUpdatesWinToTrueIfAllLettersGuessed()
         {
+            game.GenerateAnswer();
             game.GetGuess("t");
-            game.CheckGuess();
-            game.CheckIfWon();
+            game.UpdateAnswer();
             game.GetGuess("e");
-            game.CheckGuess();
-            game.CheckIfWon();
+            game.UpdateAnswer();
             game.GetGuess("s");
-            game.CheckGuess();
+            game.UpdateAnswer();
             game.CheckIfWon();
             Assert.AreEqual(true, game.Win);
         }
-       
     }
 }
