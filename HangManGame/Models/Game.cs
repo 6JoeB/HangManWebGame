@@ -30,9 +30,17 @@ namespace HangManGame.Models
 
         public void SetDifficulty(string difficulty)
         {
-            if (difficulty == "hard")
+            switch (difficulty)
             {
-                NumberOfGuesses = 5;
+                case "hard":
+                    NumberOfGuesses = 5;
+                    break;
+                case "medium":
+                    NumberOfGuesses = 10;
+                    break;
+                case "easy":
+                    NumberOfGuesses = 15;
+                    break;
             }
         }
        

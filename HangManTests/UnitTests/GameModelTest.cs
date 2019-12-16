@@ -74,16 +74,31 @@ namespace HangManTests
         }
 
         [Test]
-        public void GameCanSetDifficulty()
+        public void GameCanSetDifficultyToHard()
         {
             game.SetDifficulty("hard");
             Assert.AreEqual(5, game.NumberOfGuesses);
         }
 
         [Test]
+        public void GameCanSetDifficultyToEasy()
+        {
+            game.SetDifficulty("easy");
+            Assert.AreEqual(15, game.NumberOfGuesses);
+        }
+
+        [Test]
+        public void GameCanSetDifficultyToMedium()
+        {
+            game.SetDifficulty("hard");
+            game.SetDifficulty("medium");
+            Assert.AreEqual(10, game.NumberOfGuesses);
+        }
+
+        [Test]
         public void GameHasNumberOfGuesses()
         {
-            Assert.AreEqual(game.NumberOfGuesses, 10);
+            Assert.AreEqual(10, game.NumberOfGuesses);
         }
 
         [Test]
