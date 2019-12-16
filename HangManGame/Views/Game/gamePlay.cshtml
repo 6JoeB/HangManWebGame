@@ -1,0 +1,23 @@
+﻿@using Microsoft.AspNetCore.Http; 
+@using  HangManGame.Models;
+@model HangManGame.Models.Game;
+
+    @{
+        ViewData["Title"] = "Hang Man Game";
+        string guess = Context.Session.GetString("Guess");
+        string username = Context.Session.GetString("User");
+
+        Player player = Player.Register(username);
+        Game game = new Game();
+        game.GetGuess(guess);
+    }
+
+
+
+<div class="page-header">
+    <h3> Welcome @player.UserName </h3>
+</div>
+
+
+<p> WILL This Page Work?!!!!!! This Should Be Displaying the Guess Entered : 
+    @game.Guess

@@ -1,9 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Microsoft.EntityFrameworkCore.Internal;
-
+ 
 namespace HangManGame.Models
 
 {
@@ -19,14 +19,14 @@ namespace HangManGame.Models
         public bool Win;
         public int MatchingIndex;
         public int Index;
-        
-
+       
+ 
         public void GetWord(string word)
         //Gets word that player will be guessing
         {
             Word = word;
         }
-
+ 
         /*public void SetDifficulty(string difficulty)
         {
             if (difficulty == "hard")
@@ -42,13 +42,13 @@ namespace HangManGame.Models
                 NumberOfGuesses = 15;
             }
         }*/
-
+ 
         public void GetGuess(string guess)
         //Gets letter that player is guessing is in the word
         {
             Guess = guess;
         }
-
+ 
         public void GenerateAnswer()
         //Creates string of dashes the same length as the word
         {
@@ -59,11 +59,11 @@ namespace HangManGame.Models
             }
             Answer = answerBuilder.ToString();
         }
-
+ 
         public void UpdateAnswer()
         //Updates answer after a correct guess
         {
-            
+           
             int i = Word.IndexOf(Guess);
             StringBuilder answerUpdater = new StringBuilder(Answer);
             while (i != -1)
@@ -73,7 +73,7 @@ namespace HangManGame.Models
                 i = Word.IndexOf(Guess, i + 1);
             }
         }
-
+ 
         public void CheckGuess()
         //Checks players guess has not already been guessed, and if it is correct or not
         {
@@ -111,7 +111,7 @@ namespace HangManGame.Models
                 throw new ArgumentException("Please enter a letter to guess!");
             }
         }
-
+ 
         public void CheckIfWon()
         {
             if(Word == Answer)

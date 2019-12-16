@@ -1,15 +1,18 @@
 ﻿using System;
+using System.ComponentModel;
+
 namespace HangManGame.Models
 {
     public class Player
     {
-        public string Name { get; set; }
+        [DisplayName("UserName")]
+        public string UserName { get; set; }
 
-        public static Player Register(string name)
+        public static Player Register(string username)
         {
             return new Player
             {
-                Name = name
+                UserName = username
             };
         }
     }

@@ -1,6 +1,5 @@
 ﻿using System;
 using NUnit.Framework;
-using NUnit.Framework.Constraints;
 using HangManGame.Models;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,7 +13,6 @@ namespace HangManTests
         Game game;
 
         string word = "test";
-        string answer = "";
         List<string> lettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
         List<string> correctlyGuessed = new List<string>();
         List<string> incorrectlyGuessed = new List<string>();
@@ -27,7 +25,6 @@ namespace HangManTests
             game = new Game
             {
                 Word = word,
-                Answer = answer,
                 LettersAvailable = lettersAvailable,
                 CorrectlyGuessed = correctlyGuessed,
                 IncorrectlyGuessed = incorrectlyGuessed,
@@ -48,12 +45,6 @@ namespace HangManTests
         public void GameHasWord()
         {
             Assert.AreEqual(game.Word, word);
-        }
-
-        [Test]
-        public void GameHasAnswer()
-        {
-            Assert.AreEqual(game.Answer, answer);
         }
 
         [Test]
