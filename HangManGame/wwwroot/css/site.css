@@ -40,6 +40,11 @@ body {
     margin-left: 10% !important;
 }
 
+.mid-aligned {
+    margin: 0 auto;
+    text-align: center;
+}
+
 .aligned-left {
     margin-left: 0 auto;
 }
@@ -96,4 +101,34 @@ width: 350px;
 .usernameinputtitle {
     font-size: 112%;
     padding-bottom: 2%;
+}
+
+.playing-card {
+background-color: #c5e5fc;
+margin-top: 2%;
+margin-bottom: 5%;
+padding-top: 3%;
+padding-left: 3%;
+padding-right: 3%;
+padding-bottom: 3%;
+border-radius: 2%;
+width: 100%;
+}
+
+.win-lose-card {
+    background-color: #c5e5fc;
+    border-radius: 2%;
+    width: 100%;
+}
+
+.game-text-size {
+    font-size: 112%;
+}
+
+.space-bot {
+    padding-bottom: 0.7%;
+}
+
+.space-top {
+    padding-top: 0.7%;
 }

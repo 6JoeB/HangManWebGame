@@ -50,12 +50,4 @@ namespace HangManGame.Controllers
 
     }
 }
-/*
-Guesses Ramaining
-Correctly Guessed Letters _ _ _ _
-Letters Available
-Incorrect Guesses
-Win or Loose messege
-whats being set/ read out 
-*/ 
 
