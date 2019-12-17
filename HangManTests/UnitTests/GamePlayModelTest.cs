@@ -45,5 +45,20 @@ namespace HangManTests
             Assert.AreEqual(game.Answer.Length, game.Word.Length);
         }
 
+        [Test]
+        public void GameCarriesOutGameLogicForATurn()
+        {
+            int a = game.NumberOfGuesses;
+            int b = game.CorrectlyGuessed.Count;
+            game.StartGame();
+            game.Guess = "e";
+            game.TakeTurn();
+            Assert.AreEqual("_e__", game.Answer);
+            Assert.AreEqual(false, game.Win);
+            Assert.AreEqual(false, game.Lose);
+            Assert.AreEqual(a - 1, game.NumberOfGuesses);
+            Assert.AreEqual(b + 1, game.CorrectlyGuessed.Count);
+        }
+
     }
 }

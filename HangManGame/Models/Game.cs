@@ -148,5 +148,15 @@ namespace HangManGame.Models
             SetDifficulty("medium");
             GenerateAnswer();
         }
+
+        public void TakeTurn()
+        {
+            GetGuess(Guess);
+            CheckGuess();
+            UpdateAnswer();
+            CheckIfWon();
+            ReduceNumberOfGuesses();
+            GameOver();
+        }
     }
 }
