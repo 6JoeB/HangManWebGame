@@ -59,7 +59,6 @@ namespace HangManTests
        public void GameCanGetWord()
        {
            game.GetWord();
-           Console.WriteLine(game.Word);
            Assert.IsInstanceOf(typeof(string), game.Word);
        }
 

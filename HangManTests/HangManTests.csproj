@@ -16,10 +16,6 @@
   <ItemGroup>
     <ProjectReference Include="..\HangManGame\HangManGame.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="UnitTests\" />
-  </ItemGroup>
   <ItemGroup>
     <None Remove="UnitTests\GameModelTests.json" />
   </ItemGroup>
