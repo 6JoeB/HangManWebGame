@@ -20,5 +20,11 @@ namespace HangManTests.UnitTests
         {
             Assert.AreEqual(10, (int)Difficulty.medium);
         }
+
+        [Test]
+        public void DifficultyCanBeSetToEasy()
+        {
+            Assert.AreEqual(15, (int)Difficulty.easy);
+        }
     }
 }
