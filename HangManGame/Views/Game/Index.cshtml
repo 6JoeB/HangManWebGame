@@ -1,87 +1,78 @@
 ﻿@using Microsoft.AspNetCore.Http;
-@using  HangManGame.Models;
-@model HangManGame.Models.Game;
+@model HangManGame.Models.Guesses;
 
 @{
     ViewData["Title"] = "Hang Man Game";
-    string guess = Context.Session.GetString("Guess");
     string username = Context.Session.GetString("User");
-    string CorrectlyGuessedLetters = Context.Session.GetString("CorrectlyGuessedLetters");
-
-
     Player player = Player.Register(username);
-    Game game = @Model != null ? @Model : new Game() { CorrectlyGuessed = new List<string>() };
 }
-
-
-
-
 
 <div class="page-header">
     <h3> Welcome @player.UserName</h3>
 </div>
 
-
-
 <div class="container">
-    <p>Please enter your guess. This is Game/Index</p>
-    <form asp-action="SubmitGuess" asp-controller="Game" method="post">
-        <label asp-for="@game.Guess"></label>
-        <input asp-for="@game.Guess" placeholder="Your guess goes here" required />
-        <button type="submit" class="btn btn-primary">Submit</button>
-
-        <p>You guessed: @{@game.Guess}</p>
-
-        <p>Lives remaining: @{@game.NumberOfGuesses}</p>
-
-
-        @for (int i = 0; i < game.CorrectlyGuessed.Count; i++)
+    @{
+        if (Model.HasLost)
         {
-            <input type="hidden" asp-for="@game.CorrectlyGuessed[i]" />}
-
-
-        @for (int i = 0; i < game.IncorrectlyGuessed.Count; i++)
+            <p> You Lose :( RIP</p>
+            <p> @Html.ActionLink("New Game", "Index", "Game")</p>
+        }
+        else if (Model.HasWon)
         {
-            <input type="hidden" asp-for="@game.IncorrectlyGuessed[i]" />}
-
-
-        @for (int i = 0; i < game.LettersAvailable.Count; i++)
+            <p> You Win! :)</p>
+            <p> @Html.ActionLink("New Game", "Index", "Game")</p>
+        }
+        else
         {
-            <input type="hidden" asp-for="@game.LettersAvailable[i]" />}
+            <p>Please enter your guess: </p>
 
-       
-        <p>letters correctly guessed: </p>
-        <ul>
-            @foreach (var correctGuess in game.CorrectlyGuessed)
-            {
-                <li>@correctGuess</li>
-            }
-        </ul>
+            <form method="Post">
+                <label asp-for="@Model.Guess"></label>
+                <input asp-for="@Model.Guess" placeholder="Enter your guess..." required value="" max="1" />
+                @Html.ValidationMessageFor(m => m.Guess)
 
-        <p>letters Incorrectly guessed: </p>
-        <ul>
-            @foreach (var incorrectGuess in game.IncorrectlyGuessed)
-            {
-                <li>@incorrectGuess</li>
-            }
-        </ul>
+                <button type="submit" class="btn btn-primary">Submit</button>
 
-        <p>letters still availible to guess: </p>
-        <ul>
-            @foreach (var lettersAvailable in game.LettersAvailable)
-            {
-                <li>@lettersAvailable</li>
-            }
-        </ul>
-    </form>
+                <p>Your previous guess was: @{@Model.Guess}</p>
+
+                <p>Lives remaining: @{@Model.LivesRemaining}</p>
+
+                @for (int i = 0; i < Model.PreviousGuesses.Count; i++)
+                {
+                    <input type="hidden" asp-for="@Model.PreviousGuesses[i]" value="@Model.PreviousGuesses[i]" />
+                }
+
+                <p>
+                    @Model.OutputAnswer()
+                </p>
+
+                <p>Letters correctly guessed: </p>
+                <ul>
+                    @foreach  (var correctGuess in Model.CorrectGuesses)
+                    {
+                        <li>@correctGuess</li>
+                    }
+                </ul>
+
+                <p>Letters incorrectly guessed: </p>
+                <ul>
+                    @foreach  (var incorrectGuess in Model.IncorrectGuesses)
+                    {
+                        <li>@incorrectGuess</li>
+                    }
+                </ul>
+
+                <p>Letters still available to guess: </p>
+                <ul>
+                    @foreach  (var lettersAvailable in Model.LettersAvailable)
+                    {
+                        <li>@lettersAvailable</li>
+                    }
+                </ul>
+
+
+            </form>
+        }
+    }
 </div>
-
-
-<div class="container">
-    
-</div>
-
-/*
-Incorrect Guesses
-Win or Loose messege
-*/ 
