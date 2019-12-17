@@ -55,6 +55,14 @@ namespace HangManTests
             Assert.AreEqual(game.Answer, answer);
         }
 
+       [Test]
+       public void GameCanGetWord()
+       {
+           game.GetWord();
+           Console.WriteLine(game.Word);
+           Assert.IsInstanceOf(typeof(string), game.Word);
+       }
+
         [Test]
         public void GameHasLettersAvailable()
         {
@@ -81,18 +89,18 @@ namespace HangManTests
         }
 
         [Test]
-        public void GameCanSetDifficultyToEasy()
-        {
-            game.SetDifficulty("easy");
-            Assert.AreEqual(15, game.NumberOfGuesses);
-        }
-
-        [Test]
         public void GameCanSetDifficultyToMedium()
         {
             game.SetDifficulty("hard");
             game.SetDifficulty("medium");
             Assert.AreEqual(10, game.NumberOfGuesses);
+        }
+
+        [Test]
+        public void GameCanSetDifficultyToEasy()
+        {
+            game.SetDifficulty("easy");
+            Assert.AreEqual(15, game.NumberOfGuesses);
         }
 
         [Test]

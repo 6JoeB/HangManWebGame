@@ -27,10 +27,10 @@ namespace HangManGame.Models
             IncorrectlyGuessed = new List<string>();
         }
  
-        public void GetWord(string word)
+        public void GetWord()
         //Gets word that player will be guessing
         {
-            Word = word;
+            Word = wordGenerator.TextFileWordGetter();
         }
 
         public void SetDifficulty(string difficulty)
@@ -48,15 +48,7 @@ namespace HangManGame.Models
                     break;
             }
         }
-            else if (difficulty == "medium")
-            {
-                NumberOfGuesses = 10;
-            }
-            else if (difficulty == "easy")
-            {
-                NumberOfGuesses = 15;
-            }
-        }*/
+
         public void GetGuess(string guess)
         //Gets letter that player is guessing is in the word
 
