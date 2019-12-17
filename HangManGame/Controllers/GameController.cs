@@ -27,7 +27,7 @@ namespace HangManGame.Controllers
         public IActionResult Index(Guesses model)
         {
             var word = HttpContext.Session.GetString("word");
-            var game = new Game(word, Difficulty.Easy);
+            var game = new Game(word, Difficulty.Hard);
 
             var guesses = new List<char>(model.PreviousGuesses) { model.Guess.Value };
             var result = game.Guess(guesses);
