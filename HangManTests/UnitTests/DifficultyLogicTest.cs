@@ -10,9 +10,15 @@ namespace HangManTests.UnitTests
     class DifficultyLogicTest
     {
         [Test]
-        public void GameCanSetDifficultyToHard()
+        public void DifficultyCanBeSetToHard()
         {
             Assert.AreEqual(5, (int)Difficulty.hard);
+        }
+
+        [Test]
+        public void DifficultyCanBeSetToMedium()
+        {
+            Assert.AreEqual(10, (int)Difficulty.medium);
         }
     }
 }
