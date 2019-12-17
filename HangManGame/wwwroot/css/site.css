@@ -5,6 +5,10 @@ body {
     padding-bottom: 20px;
 }
 
+.img { 
+    max-width: 100px; 
+    max-height: 100px;
+}
 /* Wrapping element */
 /* Set some basic padding to keep content from hitting the edges */
 .body-content {

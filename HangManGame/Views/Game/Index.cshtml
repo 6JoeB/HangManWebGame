@@ -25,6 +25,7 @@
         {
             <p> Well done! You are a winner :) </p>
             <p> @Html.ActionLink("New Game", "Index", "Game")</p>
+            <p> <img class="img" src="images\freeman.jpeg.png" alt="looser" /></p>
 
         }
         else
@@ -37,7 +38,7 @@
             <form method="post">
 
                 <label asp-for="@Model.Guess"></label>
-                <input asp-for="@Model.Guess" placeholder="Your guess goes here" required value="" max="1" />
+                <input asp-for="@Model.Guess" placeholder="Your guess goes here" required value="" max="1" autofocus />
                 @Html.ValidationMessageFor(m => m.Guess)
 
                 <button type="submit" class="btn btn-primary">Submit</button>
@@ -69,6 +70,7 @@
                     @foreach (var incorrectGuess in Model.IncorrectGuesses)
                     {
                         <li>@incorrectGuess</li>
+                        
                     }
                 </ul>
 
