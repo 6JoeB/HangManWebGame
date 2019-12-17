@@ -9,7 +9,6 @@ namespace HangManTests
 {
     class GamePlayModelTests
         {
-        GamePlay gamePlay = new GamePlay();
         Game game;
 
         string word = "test";
@@ -40,7 +39,7 @@ namespace HangManTests
         [Test]
         public void CanStartNewGame()
         {
-            gamePlay.StartGame();
+            game.StartGame();
             Assert.AreEqual(10, game.NumberOfGuesses);
             Assert.IsInstanceOf(typeof(string), game.Word);
             Assert.AreEqual(game.Answer.Length, game.Word.Length);
