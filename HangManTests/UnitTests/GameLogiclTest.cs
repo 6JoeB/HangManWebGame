@@ -1,7 +1,7 @@
-﻿using System;
+﻿/*using System;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
-using HangManGame.Models;
+using HangManGame.Logic;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -244,4 +244,4 @@ namespace HangManTests
             Assert.AreEqual(true, game.Lose);
         }
     }
-}
+}*/

@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace HangManGame.Logic
+﻿namespace HangManGame.Logic
 {
     public enum Difficulty //enum = a word with a number atttached to it(type-safe, forces correct spelling/case)
     {
