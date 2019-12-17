@@ -90,7 +90,6 @@ namespace HangManTests
         [Test]
         public void GameCanSetDifficultyToMedium()
         {
-            game.SetDifficulty("hard");
             game.SetDifficulty("medium");
             Assert.AreEqual(10, game.NumberOfGuesses);
         }
@@ -105,6 +104,7 @@ namespace HangManTests
         [Test]
         public void GameHasNumberOfGuesses()
         {
+            game.SetDifficulty("medium");
             Assert.AreEqual(10, game.NumberOfGuesses);
         }
 
