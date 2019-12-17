@@ -120,6 +120,7 @@ namespace HangManGame.Models
         }
  
         public void CheckIfWon()
+        //checks if the word has been fully guessed
         {
             if(Word == Answer)
             {
@@ -128,11 +129,13 @@ namespace HangManGame.Models
         }
 
         public void ReduceNumberOfGuesses()
+        //reduces number of guesses left after a guess
         {
             NumberOfGuesses -= 1;
         }
 
         public void GameOver()
+        //checks if player has lost
         {
             if (Word != Answer) {
                 if (NumberOfGuesses == 0)
@@ -143,6 +146,7 @@ namespace HangManGame.Models
         }
 
         public void StartGame()
+        //sets up the parameters required to play a game
         {
             GetWord();
             SetDifficulty("medium");
@@ -150,6 +154,7 @@ namespace HangManGame.Models
         }
 
         public void TakeTurn()
+        //runs all the methods in order to take a turn
         {
             GetGuess(Guess);
             CheckGuess();

@@ -6,7 +6,6 @@ namespace HangManTests
 {
     public class Tests
     {
-
         public wordGenerator wordGenerator;
         [SetUp]
         public void Setup()
@@ -20,6 +19,5 @@ namespace HangManTests
             var result = wordGenerator.TextFileWordGetter();
             Assert.IsInstanceOf(typeof(string), result);
         }
-
     }
 }

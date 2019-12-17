@@ -28,13 +28,11 @@ namespace HangManTests
                 LettersAvailable = lettersAvailable,
                 CorrectlyGuessed = correctlyGuessed,
                 IncorrectlyGuessed = incorrectlyGuessed,
-
                 Guess = guess
             };
             game.CorrectlyGuessed.Clear();
             game.IncorrectlyGuessed.Clear();
         }
-
 
         [Test]
         public void CanStartNewGame()
@@ -50,7 +48,7 @@ namespace HangManTests
         {
             int a = game.NumberOfGuesses;
             int b = game.CorrectlyGuessed.Count;
-            game.StartGame();
+            game.GenerateAnswer();
             game.Guess = "e";
             game.TakeTurn();
             Assert.AreEqual("_e__", game.Answer);
@@ -60,5 +58,17 @@ namespace HangManTests
             Assert.AreEqual(b + 1, game.CorrectlyGuessed.Count);
         }
 
+        [Test]
+        public void GameCanUpdateAnswerOverMultipleTurns()
+        {
+            game.GenerateAnswer();
+            game.Guess = "e";
+            game.TakeTurn();
+            game.Guess = "s";
+            game.TakeTurn();
+            game.Guess = "t";
+            game.TakeTurn();
+            Assert.AreEqual("test", game.Answer);
+        }
     }
 }
