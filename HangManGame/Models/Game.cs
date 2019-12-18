@@ -141,5 +141,23 @@ namespace HangManGame.Models
                 } 
             }
         }
+        /*public void StartGame()
+        //sets up the parameters required to play a game (will need random word gen
+        {
+            GetWord();
+            SetDifficulty("medium");
+            GenerateAnswer();
+        }*/
+
+        public void TakeTurn()
+        //runs all the methods in order to take a turn
+        {
+            GetGuess(Guess);
+            CheckGuess();
+            UpdateAnswer();
+            CheckIfWon();
+            ReduceNumberOfGuesses();
+            GameOver();
+        }
     }
 }
