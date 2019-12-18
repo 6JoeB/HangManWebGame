@@ -1,28 +1,87 @@
-﻿@using Microsoft.AspNetCore.Http; 
+﻿@using Microsoft.AspNetCore.Http;
 @using  HangManGame.Models;
 @model HangManGame.Models.Game;
 
-    @{
-        ViewData["Title"] = "Hang Man Game";
-        string guess = Context.Session.GetString("Guess");
-        string username = Context.Session.GetString("User");
+@{
+    ViewData["Title"] = "Hang Man Game";
+    string guess = Context.Session.GetString("Guess");
+    string username = Context.Session.GetString("User");
+    string CorrectlyGuessedLetters = Context.Session.GetString("CorrectlyGuessedLetters");
 
-        Player player = Player.Register(username);
-        Game game = new Game();
-        game.GetGuess(guess);
-    }
+
+    Player player = Player.Register(username);
+    Game game = @Model != null ? @Model : new Game() { CorrectlyGuessed = new List<string>() };
+}
+
+
 
 
 
 <div class="page-header">
-    <h3> Welcome @player.UserName </h3>
+    <h3> Welcome @player.UserName</h3>
 </div>
 
+
+
 <div class="container">
-    <p>Please enter your guess</p>
-    <form asp-action="Game" asp-controller="/">
-        <label asp-for="Guess"></label>
-        <input asp-for="Guess" placeholder="Your guess goes here"/>
+    <p>Please enter your guess. This is Game/Index</p>
+    <form asp-action="SubmitGuess" asp-controller="Game" method="post">
+        <label asp-for="@game.Guess"></label>
+        <input asp-for="@game.Guess" placeholder="Your guess goes here" required autofocus />
         <button type="submit" class="btn btn-primary">Submit</button>
+
+        <p>You guessed: @{@game.Guess}</p>
+
+        <p>Lives remaining: @{@game.NumberOfGuesses}</p>
+
+
+        @for (int i = 0; i < game.CorrectlyGuessed.Count; i++)
+        {
+            <input type="hidden" asp-for="@game.CorrectlyGuessed[i]" />}
+
+
+        @for (int i = 0; i < game.IncorrectlyGuessed.Count; i++)
+        {
+            <input type="hidden" asp-for="@game.IncorrectlyGuessed[i]" />}
+
+
+        @for (int i = 0; i < game.LettersAvailable.Count; i++)
+        {
+            <input type="hidden" asp-for="@game.LettersAvailable[i]" />}
+
+       
+        <p>letters correctly guessed: </p>
+        <ul>
+            @foreach (var correctGuess in game.CorrectlyGuessed)
+            {
+                <li>@correctGuess</li>
+            }
+        </ul>
+
+        <p>letters Incorrectly guessed: </p>
+        <ul>
+            @foreach (var incorrectGuess in game.IncorrectlyGuessed)
+            {
+                <li>@incorrectGuess</li>
+            }
+        </ul>
+
+        <p>letters still availible to guess: </p>
+        <ul>
+            @foreach (var lettersAvailable in game.LettersAvailable)
+            {
+                <li>@lettersAvailable</li>
+            }
+        </ul>
     </form>
 </div>
+
+
+<div class="container">
+    
+</div>
+
+/*
+Incorrect Guesses
+Win or Loose messege
+*/ 
