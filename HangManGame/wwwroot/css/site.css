@@ -126,7 +126,7 @@ ul.nav a:hover {
     padding-right: 3%;
     padding-bottom: 3%;
     border-radius: 10px;
-    width: 90%;
+    width: 100%;
     border: 1px solid black;
     font-size: 122%;
 }
@@ -158,7 +158,7 @@ ul.nav a:hover {
 }
 
 .word-text {
-    font-size: 472%;
+    font-size: 442%;
 }
 
 .gameplay-text {
