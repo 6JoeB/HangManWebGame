@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using HangManGame.Models;
 using Microsoft.AspNetCore.Http;
@@ -14,7 +10,9 @@ namespace HangManGame.Controllers
     public class GameController : Controller
     {
         public IActionResult Index()
-        { 
+        {
+            //Game.GetWord();
+
             return View("Index");
         }
 
@@ -42,7 +40,7 @@ namespace HangManGame.Controllers
         public IActionResult SubmitGuess(Game game)
         {
             // Add logic so it only does this when the guess is correct
-            //game.CorrectlyGuessed.Add(game.Guess);
+            game.CorrectlyGuessed.Add(game.Guess);
             game.GetWord("easy");
 
             return RedirectToAction("InPlay", game);  /// was redirect to action 
