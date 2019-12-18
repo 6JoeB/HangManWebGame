@@ -27,7 +27,7 @@
     <p>Please enter your guess. This is Game/Index</p>
     <form asp-action="SubmitGuess" asp-controller="Game" method="post">
         <label asp-for="@game.Guess"></label>
-        <input asp-for="@game.Guess" placeholder="Your guess goes here" required />
+        <input asp-for="@game.Guess" placeholder="Your guess goes here" required autofocus />
         <button type="submit" class="btn btn-primary">Submit</button>
 
         <p>You guessed: @{@game.Guess}</p>
