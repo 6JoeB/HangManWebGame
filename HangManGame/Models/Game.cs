@@ -9,13 +9,14 @@ namespace HangManGame.Models
 {
     public class Game
     {
-        public string Word { get; set; }
-        public string Answer;
+        public string Word { get; private set; }
+        public string Answer { get; set; }
         public List<string> LettersAvailable = new List<string>(new string[] { "a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z" });
         public List<string> CorrectlyGuessed { get; set; }
         public List<string> IncorrectlyGuessed { get; set; }
         public int NumberOfGuesses = 5;
         public string Guess { get; set; }
+        public int Lives { get; set; }
         public bool Win;
         public bool Lose;
         public int MatchingIndex;

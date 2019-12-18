@@ -30,52 +30,53 @@
         <input asp-for="@game.Guess" placeholder="Your guess goes here" required autofocus />
         <button type="submit" class="btn btn-primary">Submit</button>
 
-        <h1> @{@game.Answer}
+        <h1>
 
-        <p>You guessed: @{@game.Guess}</p>
+            <p>You guessed: @{@game.Guess}</p>
 
-        <p>Lives remaining: @{@game.NumberOfGuesses}</p>
+            <p>Lives remaining: @{@game.NumberOfGuesses}</p>
 
-
-        @for (int i = 0; i < game.CorrectlyGuessed.Count; i++)
-        {
-            <input type="hidden" asp-for="@game.CorrectlyGuessed[i]" />}
-
-
-        @for (int i = 0; i < game.IncorrectlyGuessed.Count; i++)
-        {
-            <input type="hidden" asp-for="@game.IncorrectlyGuessed[i]" />}
-
-
-        @for (int i = 0; i < game.LettersAvailable.Count; i++)
-        {
-            <input type="hidden" asp-for="@game.LettersAvailable[i]" />}
-
-       
-        <p>letters correctly guessed: </p>
-        <ul>
-            @foreach (var correctGuess in game.CorrectlyGuessed)
+           <p> @game.Answer</p> 
+            
+            @for (int i = 0; i < game.CorrectlyGuessed.Count; i++)
             {
-                <li>@correctGuess</li>
-            }
-        </ul>
+                <input type="hidden" asp-for="@game.CorrectlyGuessed[i]" />}
 
-        <p>letters Incorrectly guessed: </p>
-        <ul>
-            @foreach (var incorrectGuess in game.IncorrectlyGuessed)
-            {
-                <li>@incorrectGuess</li>
-            }
-        </ul>
 
-        <p>letters still availible to guess: </p>
-        <ul>
-            @foreach (var lettersAvailable in game.LettersAvailable)
+            @for (int i = 0; i < game.IncorrectlyGuessed.Count; i++)
             {
-                <li>@lettersAvailable</li>
-            }
-        </ul>
-    </form>
+                <input type="hidden" asp-for="@game.IncorrectlyGuessed[i]" />}
+
+
+            @for (int i = 0; i < game.LettersAvailable.Count; i++)
+            {
+                <input type="hidden" asp-for="@game.LettersAvailable[i]" />}
+
+
+            <p>letters correctly guessed: </p>
+            <ul>
+                @foreach (var correctGuess in game.CorrectlyGuessed)
+                {
+                    <li>@correctGuess</li>
+                }
+            </ul>
+
+            <p>letters Incorrectly guessed: </p>
+            <ul>
+                @foreach (var incorrectGuess in game.IncorrectlyGuessed)
+                {
+                    <li>@incorrectGuess</li>
+                }
+            </ul>
+
+            <p>letters still availible to guess: </p>
+            <ul>
+                @foreach (var lettersAvailable in game.LettersAvailable)
+                {
+                    <li>@lettersAvailable</li>
+                }
+            </ul>
+</form>
 </div>
 
 

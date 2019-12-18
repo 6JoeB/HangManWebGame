@@ -55,17 +55,17 @@ namespace HangManGame.Controllers
         {
            
             game.GetWord("easy");
-
+            game.GenerateAnswer();
             if (game.Word.Contains(game.Guess)) {
                 game.CorrectlyGuessed.Add(game.Guess);
-                game.GenerateAnswer();
                 game.CheckIfWon();
             }
             else {
                 game.IncorrectlyGuessed.Add(game.Guess);
-                game.ReduceNumberOfGuesses(); //this isnt working
+                int Lives = (game.NumberOfGuesses - game.IncorrectlyGuessed.Count); 
             }
             // Add logic so it only does this when the guess is correct
+            game.UpdateAnswer();
 
             return RedirectToAction("Index", game);  /// was redirect to action 
             
