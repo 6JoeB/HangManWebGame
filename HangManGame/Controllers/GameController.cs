@@ -11,16 +11,15 @@ namespace HangManGame.Controllers
     public class GameController : Controller
     {
         //Create instance of the game
-        Game game = new Game();
+        private static Game game = new Game();
+  
         public IActionResult Index()
         {
 
-            //initialize game
+            //Initialise the game
             game.GetWord("testing");
             game.GenerateAnswer();
-            Console.WriteLine("??????????");
-            Console.WriteLine(game.Temp());
-           
+
             return View("Index", game);
         }
 
@@ -48,19 +47,14 @@ namespace HangManGame.Controllers
         [HttpPost]
         public IActionResult SubmitGuess([FromForm] string guess)
         {
-          
-          
-            // Add logic so it only does this when the guess is correct
 
-            //Get the guess from the form
+
+            //Update the game based on the guess
             game.GetGuess(guess);
-            Console.WriteLine("************");
-            Console.WriteLine(game.Temp());
-
+            game.CheckGuess();
+            game.ReduceNumberOfGuesses();
             return RedirectToAction("InPlay", game);  /// was redirect to action 
-            
-
-
+           
         }
 
     }
