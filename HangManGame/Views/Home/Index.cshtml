@@ -2,6 +2,9 @@
 @using  HangManGame.Models;
 @model HangManGame.Models.Player;
 
+
+
+
     @{
         ViewData["Title"] = "Hang Man Game";
         string username = Context.Session.GetString("User");
@@ -15,8 +18,8 @@
             <form asp-action="Index" asp-controller="/" method="post">
                 <div class="col s12">
                     <div class="form-group">
-                        <label class="usernameinputtitle"for="usernameinput">UserName</label>
-                        <input type="text" class="form-control username-input" id="Username" aria-describedby="usernameinput" placeholder="Enter username here...">
+                        <label class="usernameinputtitle" asp-for="UserName" for="usernameinput">UserName</label>
+                        <input type="text" class="form-control username-input" asp-for="UserName" id="Username" aria-describedby="usernameinput" placeholder="Enter username here...">
                     </div>
                     <div>
                         <button type="submit" class="btn btn-primary">Submit</button>

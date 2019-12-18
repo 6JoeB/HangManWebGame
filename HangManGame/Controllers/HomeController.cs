@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using HangManGame.Models;
 using Microsoft.AspNetCore.Http;
@@ -33,7 +29,7 @@ namespace HangManGame.Controllers
         public IActionResult Index(Player player)
         {
             HttpContext.Session.SetString("User", player.UserName);
-            return RedirectToAction("/", "Game");
+            return RedirectToAction("Index", "Game");
         }
 
     }

@@ -1,0 +1,15 @@
+﻿@model HangManGame.Models.Game;
+@using Newtonsoft.Json;
+@using Microsoft.AspNetCore.Http;
+
+@{
+    ViewData["Title"] = "Hang Man Game";
+    //read session object from view
+    string gameJson = Context.Session.GetString("game");
+    Game game = JsonConvert.DeserializeObject<Game>(gameJson);
+
+}
+
+
+@game.Answer
+<h1> Hello </h1>

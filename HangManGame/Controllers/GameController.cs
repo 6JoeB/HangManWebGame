@@ -1,23 +1,39 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using HangManGame.Models;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System;
 
 namespace HangManGame.Controllers
 {
     public class GameController : Controller
     {
-
         public IActionResult Index()
         {
-            return View("Index");
+            //initialise a game object
+            Game game = new Game();
+            game.GetWord("testing");
+            game.GenerateAnswer();
+            game.GetGuess("t");
+            //set in the session object
+            string gameJson = JsonConvert.SerializeObject(game);
+            HttpContext.Session.SetString("game", gameJson);
+            return View("Test");
+        }
+
+        public IActionResult InPlay(Game game)
+        {
+            
+            return View("Index", game);
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult gamePlay()
         {
             return View();
         }
@@ -28,16 +44,27 @@ namespace HangManGame.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
         [HttpPost]
-        public IActionResult Index(Game game)
+        public IActionResult SubmitGuess(Game game)
         {
-            HttpContext.Session.SetString("Guess", game.Guess);
-            return RedirectToAction("Game");
+            // Add logic so it only does this when the guess is correct
+            game.CorrectlyGuessed.Add(game.Guess);
+            game.GetWord("easy");
+
+            return RedirectToAction("InPlay", game);  /// was redirect to action 
+            
+
+
         }
 
     }
 }
-
-
+/*
+Guesses Ramaining
+Correctly Guessed Letters _ _ _ _
+Letters Available
+Incorrect Guesses
+Win or Loose messege
+whats being set/ read out 
+*/ 
 
