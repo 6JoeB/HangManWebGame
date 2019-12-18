@@ -7,80 +7,91 @@
     Player player = Player.Register(username);
 }
 
-<div class="page-header mid-aligned">
-    <h2> Welcome @player.UserName</h2>
-</div>
-
-
-    @{
-        if (Model.HasLost)
-        {
-            <div class="container-fluid mid-aligned win-lose-card">
-                <p class="space-top"> You Lose :(</p>
-                <p class="space-top space-bot"> @Html.ActionLink("New Game", "Index", "Game")</p>
-                <img class="space-bot" src="https://media.giphy.com/media/HvRZOW92Jg2aY/giphy.gif" />
-            </div>
-        }
-        else if (Model.HasWon)
-        {
-            
-            <div class="container-fluid mid-aligned win-lose-card">
-                <p class="space-top"> You Win! :)</p>
-                <p class="space-top space-bot"> @Html.ActionLink("New Game", "Index", "Game")</p>
-                <img class="space-bot" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif" />
-            </div>
-        }
-        else
-        { 
-            <div class="container-fluid body-card">
-                <div class="container-fluid playing-card mid-aligned game-text-size">
-                    <form method="Post">
-                        <label asp-for="@Model.Guess">Please enter your guess: </label>
-                        <input asp-for="@Model.Guess" placeholder="Enter your guess..." required value="" max="1" />
-                        @Html.ValidationMessageFor(m => m.Guess)
-
-                        <button type="submit" class="btn btn-primary">Submit</button>
-
-                        <p>Your previous guess was: @{@Model.Guess}</p>
-
-                        <p>Lives remaining: @{@Model.LivesRemaining}</p>
-
-                        @for (int i = 0; i < Model.PreviousGuesses.Count; i++)
-                        {
-                            <input type="hidden" asp-for="@Model.PreviousGuesses[i]" value="@Model.PreviousGuesses[i]" />
-                        }
-
-                        <p>
-                            @Model.OutputAnswer()
-                        </p>
-
-                        <p>Letters correctly guessed: </p>
-                        <ul>
-                            @foreach  (var correctGuess in Model.CorrectGuesses)
-                            {
-                                <ul>@correctGuess</ul>
-                            }
-                        </ul>
-
-                        <p>Letters incorrectly guessed: </p>
-                        <ul>
-                            @foreach  (var incorrectGuess in Model.IncorrectGuesses)
-                            {
-                                <ul>@incorrectGuess</ul>
-                            }
-                        </ul>
-
-                        <p>Letters still available to guess: </p>
-                        <ul>
-                            @foreach  (var lettersAvailable in Model.LettersAvailable)
-                            {
-                                <ul>@lettersAvailable</ul>
-                            }
-                        </ul>
-
-               
-                    </form>
-                </div>
-            </div>
-        }
+@{
+    if (Model.HasLost)
+    {
+        <div class="container-fluid mid-aligned win-lose-card">
+            <p class="space-top"> You Lose :(</p>
+            <p class="space-top space-bot"> @Html.ActionLink("New Game", "Index", "Game")</p>
+            <img class="space-bot" src="https://media.giphy.com/media/HvRZOW92Jg2aY/giphy.gif" />
+        </div>
     }
+    else if (Model.HasWon)
+    {
+            
+        <div class="container-fluid mid-aligned win-lose-card">
+            <p class="space-top"> You Win! :)</p>
+            <p class="space-top space-bot"> @Html.ActionLink("New Game", "Index", "Game")</p>
+            <img class="space-bot" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif" />
+        </div>
+    }
+    else
+    {
+        <div class="page-header mid-aligned">
+            <h2> Welcome to Hangman, @player.UserName</h2>
+        </div>
+
+        <div class="container-fluid body-card">
+            <div class="container-fluid playing-card mid-aligned game-text-size">
+                <form method="Post">
+                    <span class="left-aligned gameplay-text">Guesses remaining: @{@Model.LivesRemaining}</span>
+                        
+                    <span class="right-aligned gameplay-text">Your previous guess was: @{@Model.Guess}</span>
+
+                    <br />
+
+                    <p class="word-text">
+                        @Model.OutputAnswer()
+                    </p>
+
+
+                    <span class="gameplay-text">Please enter your guess: </span>
+                    <input asp-for="@Model.Guess" placeholder="Enter your guess..." required value="" max="1" />
+                    @Html.ValidationMessageFor(m => m.Guess)
+
+                    <button type="submit" class="btn btn-primary">Submit</button>
+
+                    @for (int i = 0; i < Model.PreviousGuesses.Count; i++)
+                    {
+                        <input type="hidden" asp-for="@Model.PreviousGuesses[i]" value="@Model.PreviousGuesses[i]" />
+                    }
+                    <br />
+                    <br />
+                    <br />
+
+                    <div class="row">
+                        <div class="column">
+                            <p class="mid-aligned gameplay-text">Letters correctly guessed: </p>
+                                <ul>
+                                    @foreach  (var correctGuess in Model.CorrectGuesses)
+                                    {
+                                        <span class="mid-aligned gameplay-text"> @correctGuess </span>
+                                    }
+                                </ul>
+                            </div>
+
+                            <div class="column">
+                                <p class="mid-aligned gameplay-text">Letters incorrectly guessed: </p>
+                                    <ul>
+                                        @foreach  (var incorrectGuess in Model.IncorrectGuesses)
+                                        {
+                                            <span class="mid-aligned gameplay-text"> @incorrectGuess </span>
+                                        }
+                                    </ul>
+                            </div>
+
+                            <div class="column"> 
+                                <p class="mid-aligned gameplay-text">Letters still available to guess: </p>
+                                    <ul>
+                                        @foreach  (var letterAvailable in Model.LettersAvailable)
+                                        {
+                                            <span class="mid-aligned gameplay-text"> @letterAvailable </span>
+                                        }
+                                    </ul>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    }
+}
