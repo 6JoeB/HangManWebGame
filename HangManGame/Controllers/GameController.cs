@@ -17,7 +17,7 @@ namespace HangManGame.Controllers
         [HttpGet]
         public IActionResult Index()
         {
-            string word = "easy";
+            var word = wordGenerator.TextFileWordGetter();
             HttpContext.Session.SetString("word", word);
             var model = new Guesses(word);
 

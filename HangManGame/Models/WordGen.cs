@@ -19,10 +19,11 @@ namespace HangManGame.Models
                     string word = lines[new Random().Next(lines.Length)];
                     return word;
                 default:
-                    string[] linesMac = File.ReadAllLines(@"../../../../HangManTextFiles/wordsOne.txt");
+                    string[] linesMac = File.ReadAllLines(@"../../../HangManWebGame/HangManWebGame/HangManTextFiles/wordsOne.txt");
                     string wordMac = linesMac[new Random().Next(linesMac.Length)];
                     return wordMac;
             }
+            // Macintosh HD⁩ ▸ ⁨Users⁩ ▸ ⁨Student⁩ ▸ ⁨Desktop⁩ ▸ ⁨HangManGame⁩ ▸ ⁨HangManWebGame⁩ ▸ ⁨HangManWebGame⁩ ▸ ⁨HangManTextFiles⁩
         }
     }
 }

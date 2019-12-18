@@ -12,15 +12,17 @@
     {
         <div class="container-fluid mid-aligned win-lose-card">
             <p class="space-top"> You Lose :(</p>
+            <p class="space-top"> The word was @{@Model.OutputAnswer()}</p>
             <p class="space-top space-bot"> @Html.ActionLink("New Game", "Index", "Game")</p>
             <img class="space-bot" src="https://media.giphy.com/media/HvRZOW92Jg2aY/giphy.gif" />
         </div>
     }
     else if (Model.HasWon)
     {
-            
+
         <div class="container-fluid mid-aligned win-lose-card">
             <p class="space-top"> You Win! :)</p>
+            <p class="space-top"> The word was @{@Model.OutputAnswer()}</p>
             <p class="space-top space-bot"> @Html.ActionLink("New Game", "Index", "Game")</p>
             <img class="space-bot" src="https://media.giphy.com/media/a0h7sAqON67nO/giphy.gif" />
         </div>
@@ -43,6 +45,7 @@
                     <p class="word-text">
                         @Model.OutputAnswer()
                     </p>
+                    <br />
 
 
                     <span class="gameplay-text">Please enter your guess: </span>
