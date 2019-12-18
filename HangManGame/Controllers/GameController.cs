@@ -12,26 +12,20 @@ namespace HangManGame.Controllers
     {
         public IActionResult Index()
         {
-            //initialize game
+            //initialise a game object
             Game game = new Game();
             game.GetWord("testing");
             game.GenerateAnswer();
             game.GetGuess("t");
+            //set in the session object
             string gameJson = JsonConvert.SerializeObject(game);
             HttpContext.Session.SetString("game", gameJson);
-
-            HttpContext.Session.Get("game");
-            Game gameSession = JsonConvert.DeserializeObject<Game>(gameJson);
-            gameSession.UpdateAnswer();
-            Console.WriteLine(gameSession.Answer);
-            Console.WriteLine(gameSession.Word);
-            Console.WriteLine(gameSession.NumberOfGuesses);
-
-            return View("Index");
+            return View("Test");
         }
 
         public IActionResult InPlay(Game game)
         {
+            
             return View("Index", game);
         }
 
