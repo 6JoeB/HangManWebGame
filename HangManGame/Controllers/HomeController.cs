@@ -29,6 +29,8 @@ namespace HangManGame.Controllers
         public IActionResult Index(Player player)
         {
             HttpContext.Session.SetString("User", player.UserName);
+            //setup game here 
+
             return RedirectToAction("Index", "Game");
         }
 

@@ -53,9 +53,19 @@ namespace HangManGame.Controllers
         [HttpPost]
         public IActionResult SubmitGuess(Game game)
         {
-            // Add logic so it only does this when the guess is correct
-            game.CorrectlyGuessed.Add(game.Guess);
+           
             game.GetWord("easy");
+
+            if (game.Word.Contains(game.Guess)) {
+                game.CorrectlyGuessed.Add(game.Guess);
+                game.GenerateAnswer();
+                game.CheckIfWon();
+            }
+            else {
+                game.IncorrectlyGuessed.Add(game.Guess);
+                game.ReduceNumberOfGuesses(); //this isnt working
+            }
+            // Add logic so it only does this when the guess is correct
 
             return RedirectToAction("Index", game);  /// was redirect to action 
             
