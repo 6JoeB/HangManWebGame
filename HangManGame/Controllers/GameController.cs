@@ -10,29 +10,23 @@ namespace HangManGame.Controllers
 {
     public class GameController : Controller
     {
+        //Create instance of the game
         Game game = new Game();
         public IActionResult Index()
         {
+
             //initialize game
-            
             game.GetWord("testing");
             game.GenerateAnswer();
-            
-            //string gameJson = JsonConvert.SerializeObject(game);
-            //HttpContext.Session.SetString("game", gameJson);
-
-            //HttpContext.Session.Get("game");
-            //Game gameSession = JsonConvert.DeserializeObject<Game>(gameJson);
-            //gameSession.UpdateAnswer();
-            //Console.WriteLine(gameSession.Answer);
-            //Console.WriteLine(gameSession.Word);
-            //Console.WriteLine(gameSession.NumberOfGuesses);
-
+            Console.WriteLine("??????????");
+            Console.WriteLine(game.Temp());
+           
             return View("Index", game);
         }
 
         public IActionResult InPlay(Game game)
         {
+            //Display the current state of the game
             return View("Index", game);
         }
 
@@ -52,18 +46,17 @@ namespace HangManGame.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitGuess(Game g)
+        public IActionResult SubmitGuess([FromForm] string guess)
         {
-            Console.WriteLine("************");
-            Console.WriteLine(g.Guess);
-            Console.WriteLine(g);
+          
+          
             // Add logic so it only does this when the guess is correct
-            game.CorrectlyGuessed.Add(g.Guess);
- 
-            //game.GetGuess(g.Guess);
 
+            //Get the guess from the form
+            game.GetGuess(guess);
+            Console.WriteLine("************");
+            Console.WriteLine(game.Temp());
 
-            game.GetGuess("t");
             return RedirectToAction("InPlay", game);  /// was redirect to action 
             
 

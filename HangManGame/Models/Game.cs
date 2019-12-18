@@ -55,6 +55,11 @@ namespace HangManGame.Models
         {
             Guess = guess;
         }
+
+        public string Temp()
+        {
+            return Word;
+        }
  
         public void GenerateAnswer()
         //Creates string of dashes the same length as the word

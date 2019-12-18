@@ -10,7 +10,7 @@
 
 
     Player player = Player.Register(username);
-    Game game = @Model;
+    Game game = @Model != null ? @Model : new Game() { CorrectlyGuessed = new List<string>() };
 }
 
 
@@ -25,11 +25,11 @@
 
 <div class="container">
     <p>Please enter your guess. This is Game/Index</p>
-    <form asp-action="SubmitGuess" asp-controller="Game" method="post">
-        <label asp-for="@game.Guess"></label>
-        <input asp-for="@game.Guess" placeholder="Your guess goes here" required autofocus />
-        <button type="submit" class="btn btn-primary">Submit</button>
-
+   
+        <form action="/game/submitguess" method="POST">
+            <input type="text" name="guess" />
+            <input type="submit" />
+        </form>
         <p>You guessed: @{@game.Guess}</p>
 
         <p>Lives remaining: @{@game.NumberOfGuesses}</p>
@@ -49,7 +49,7 @@
         {
             <input type="hidden" asp-for="@game.LettersAvailable[i]" />}
 
-       
+
         <p>letters correctly guessed: </p>
         <ul>
             @foreach (var correctGuess in game.CorrectlyGuessed)
@@ -73,12 +73,12 @@
                 <li>@lettersAvailable</li>
             }
         </ul>
-    </form>
+
 </div>
 
 
 <div class="container">
-    
+
 </div>
 
 /*
