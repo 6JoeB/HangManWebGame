@@ -10,7 +10,7 @@ namespace HangManGame.Logic
         public Difficulty Difficulty { get; private set; }
         //values that should only be set when the game is started should be in the constructer
 
-        public Game(string word, Difficulty difficulty = Difficulty.hard)
+        public Game(string word, Difficulty difficulty = Difficulty.medium)
         {
             Word = word;
             Difficulty = difficulty;

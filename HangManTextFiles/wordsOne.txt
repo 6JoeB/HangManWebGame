@@ -1,4 +1,6 @@
-aardvark
-aardvarks
-aardwolf
-aardwolves
+banana
+makers
+windows
+macintosh
+javascript
+christmas
