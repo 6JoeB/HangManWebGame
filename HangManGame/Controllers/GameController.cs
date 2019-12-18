@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using HangManGame.Models;
 using Microsoft.AspNetCore.Http;
-
-
+using Newtonsoft.Json;
+using System;
 
 namespace HangManGame.Controllers
 {
@@ -11,7 +12,20 @@ namespace HangManGame.Controllers
     {
         public IActionResult Index()
         {
-            //Game.GetWord();
+            //initialize game
+            Game game = new Game();
+            game.GetWord("testing");
+            game.GenerateAnswer();
+            game.GetGuess("t");
+            string gameJson = JsonConvert.SerializeObject(game);
+            HttpContext.Session.SetString("game", gameJson);
+
+            HttpContext.Session.Get("game");
+            Game gameSession = JsonConvert.DeserializeObject<Game>(gameJson);
+            gameSession.UpdateAnswer();
+            Console.WriteLine(gameSession.Answer);
+            Console.WriteLine(gameSession.Word);
+            Console.WriteLine(gameSession.NumberOfGuesses);
 
             return View("Index");
         }
