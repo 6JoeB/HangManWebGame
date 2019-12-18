@@ -10,24 +10,25 @@ namespace HangManGame.Controllers
 {
     public class GameController : Controller
     {
+        Game game = new Game();
         public IActionResult Index()
         {
             //initialize game
-            Game game = new Game();
+            
             game.GetWord("testing");
             game.GenerateAnswer();
-            game.GetGuess("t");
-            string gameJson = JsonConvert.SerializeObject(game);
-            HttpContext.Session.SetString("game", gameJson);
+            
+            //string gameJson = JsonConvert.SerializeObject(game);
+            //HttpContext.Session.SetString("game", gameJson);
 
-            HttpContext.Session.Get("game");
-            Game gameSession = JsonConvert.DeserializeObject<Game>(gameJson);
-            gameSession.UpdateAnswer();
-            Console.WriteLine(gameSession.Answer);
-            Console.WriteLine(gameSession.Word);
-            Console.WriteLine(gameSession.NumberOfGuesses);
+            //HttpContext.Session.Get("game");
+            //Game gameSession = JsonConvert.DeserializeObject<Game>(gameJson);
+            //gameSession.UpdateAnswer();
+            //Console.WriteLine(gameSession.Answer);
+            //Console.WriteLine(gameSession.Word);
+            //Console.WriteLine(gameSession.NumberOfGuesses);
 
-            return View("Index");
+            return View("Index", game);
         }
 
         public IActionResult InPlay(Game game)
@@ -51,12 +52,18 @@ namespace HangManGame.Controllers
         }
 
         [HttpPost]
-        public IActionResult SubmitGuess(Game game)
+        public IActionResult SubmitGuess(Game g)
         {
+            Console.WriteLine("************");
+            Console.WriteLine(g.Guess);
+            Console.WriteLine(g);
             // Add logic so it only does this when the guess is correct
-            game.CorrectlyGuessed.Add(game.Guess);
-            game.GetWord("easy");
+            game.CorrectlyGuessed.Add(g.Guess);
+ 
+            //game.GetGuess(g.Guess);
 
+
+            game.GetGuess("t");
             return RedirectToAction("InPlay", game);  /// was redirect to action 
             
 
