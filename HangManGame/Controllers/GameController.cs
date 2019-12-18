@@ -20,12 +20,12 @@ namespace HangManGame.Controllers
             string gameJson = JsonConvert.SerializeObject(game);
             HttpContext.Session.SetString("game", gameJson);
 
-            HttpContext.Session.Get("game");
+            /*HttpContext.Session.Get("game");
             Game gameSession = JsonConvert.DeserializeObject<Game>(gameJson);
             gameSession.UpdateAnswer();
             Console.WriteLine(gameSession.Answer);
             Console.WriteLine(gameSession.Word);
-            Console.WriteLine(gameSession.NumberOfGuesses);
+            Console.WriteLine(gameSession.NumberOfGuesses);*/
 
             return View("Index");
         }
