@@ -10,9 +10,6 @@
 <div class="page-header">
     <h3> Welcome @player.UserName</h3>
 </div>
-
-
-
 <div class="container">
     @{
         if (Model.HasLost)
@@ -70,7 +67,7 @@
                     @foreach (var incorrectGuess in Model.IncorrectGuesses)
                     {
                         <li>@incorrectGuess</li>
-                        
+
                     }
                 </ul>
 
@@ -81,6 +78,10 @@
                         <li>@lettersAvailable</li>
                     }
                 </ul>
+
+                <p>
+
+                </p>
             </form>
 
         }
