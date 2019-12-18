@@ -29,8 +29,8 @@ namespace HangManGame.Controllers
 
             return View("Index");
         }
-
-        public IActionResult InPlay(Game game)
+        [HttpGet]
+        public IActionResult Index(Game game)
         {
             return View("Index", game);
         }
@@ -57,7 +57,7 @@ namespace HangManGame.Controllers
             game.CorrectlyGuessed.Add(game.Guess);
             game.GetWord("easy");
 
-            return RedirectToAction("InPlay", game);  /// was redirect to action 
+            return RedirectToAction("Index", game);  /// was redirect to action 
             
 
 

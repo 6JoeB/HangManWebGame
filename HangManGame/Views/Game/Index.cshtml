@@ -30,6 +30,8 @@
         <input asp-for="@game.Guess" placeholder="Your guess goes here" required autofocus />
         <button type="submit" class="btn btn-primary">Submit</button>
 
+        <h1> @{@game.Answer}</h1>
+
         <p>You guessed: @{@game.Guess}</p>
 
         <p>Lives remaining: @{@game.NumberOfGuesses}</p>
