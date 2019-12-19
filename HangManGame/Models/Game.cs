@@ -20,6 +20,7 @@ namespace HangManGame.Models
         public bool Lose;
         public int MatchingIndex;
         public int Index;
+        public string FullWord;
 
         public Game()
         {
@@ -31,6 +32,7 @@ namespace HangManGame.Models
         //Gets word that player will be guessing
         {
             Word = word;
+            FullWord = word;
         }
 
         public void SetDifficulty(string difficulty)
@@ -70,7 +72,13 @@ namespace HangManGame.Models
                 answerBuilder.Append("_");
             }
             Answer = answerBuilder.ToString();
-        }
+            Win = false;
+            Lose = false;
+            CorrectlyGuessed = new List<string> { };
+            IncorrectlyGuessed = new List<string> { };
+            NumberOfGuesses = 10;
+            Guess = "";
+    }
  
         public void UpdateAnswer()
         //Updates answer after a correct guess
