@@ -17,7 +17,7 @@ namespace HangManGame.Controllers
         {
 
             //Initialise the game
-            game.GetWord("testing");
+            game.GetWord();
             game.GenerateAnswer();
 
             return View("Index", game);

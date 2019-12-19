@@ -28,11 +28,11 @@ namespace HangManGame.Models
             IncorrectlyGuessed = new List<string>();
         }
  
-        public void GetWord(string word)
+        public void GetWord()
         //Gets word that player will be guessing
         {
-            Word = word;
-            FullWord = word;
+            Word = wordGenerator.TextFileWordGetter();
+            FullWord = Word;
         }
 
         public void SetDifficulty(string difficulty)
