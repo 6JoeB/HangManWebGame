@@ -105,12 +105,13 @@ namespace HangManGame.Models
                         }
                         else
                         {
+                            ReduceNumberOfGuesses();
                             IncorrectlyGuessed.Add(Guess);
                         }
                     }
                     else
                     {
-                        throw new ArgumentException("That letter has already been guessed!");
+                       // throw new ArgumentException("That letter has already been guessed!");
                     }
                 }
                 else
@@ -120,7 +121,7 @@ namespace HangManGame.Models
             }
             else
             {
-                throw new ArgumentException("Please enter a letter to guess!");
+              //  throw new ArgumentException("Please enter a letter to guess!");
             }
         }
  

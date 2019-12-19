@@ -54,7 +54,8 @@ namespace HangManGame.Controllers
             game.GetGuess(guess);
             game.CheckGuess();
             game.UpdateAnswer();
-            game.ReduceNumberOfGuesses();
+            game.CheckIfWon();
+            game.GameOver(); 
             return RedirectToAction("InPlay", game);  /// was redirect to action 
            
         }
