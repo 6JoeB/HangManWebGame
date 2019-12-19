@@ -38,13 +38,13 @@
     else
     {
         <div class="page-header mid-aligned">
-            <h2> Welcome to hangman, @player.UserName</h2>
+            <h2> Welcome to Hangman, @player.UserName</h2>
         </div>
 
         <div class="container-fluid body-card">
             <div class="container-fluid playing-card mid-aligned game-text-size">
                 <form action="/game/submitguess" method="POST">
-                    <span class="left-aligned gameplay-text">Guesses remaining: @{@game.NumberOfGuesses}</span>
+                    <span class="left-aligned gameplay-text">Lives remaining: @{@game.NumberOfGuesses}</span>
                         
                     <span class="right-aligned gameplay-text">Your previous guess was: @{@game.Guess}</span>
 
