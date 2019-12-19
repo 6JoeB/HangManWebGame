@@ -23,8 +23,9 @@ namespace HangManGame.Controllers
             return View("Index", game);
         }
 
-        public IActionResult InPlay(Game game)
+        public IActionResult InPlay()
         {
+            game.UpdateAnswer();
             //Display the current state of the game
             return View("Index", game);
         }
@@ -48,10 +49,11 @@ namespace HangManGame.Controllers
         public IActionResult SubmitGuess([FromForm] string guess)
         {
 
-
+            
             //Update the game based on the guess
             game.GetGuess(guess);
             game.CheckGuess();
+            game.UpdateAnswer();
             game.ReduceNumberOfGuesses();
             return RedirectToAction("InPlay", game);  /// was redirect to action 
            

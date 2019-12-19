@@ -115,7 +115,7 @@ namespace HangManGame.Models
                 }
                 else
                 {
-                    throw new ArgumentException("That letter has already been guessed!");
+                   // throw new ArgumentException("That letter has already been guessed!");
                 }
             }
             else

@@ -27,17 +27,19 @@
     <p>Please enter your guess. This is Game/Index</p>
    
         <form action="/game/submitguess" method="POST">
-            <input type="text" name="guess" />
+            <input type="text" name="guess" autofocus/>
             <input type="submit" />
         </form>
         <p>You guessed: @{@game.Guess}</p>
+        <p> @game.Answer</p>
 
         <p>Lives remaining: @{@game.NumberOfGuesses}</p>
 
 
         @for (int i = 0; i < game.CorrectlyGuessed.Count; i++)
         {
-            <input type="hidden" asp-for="@game.CorrectlyGuessed[i]" />}
+            <input type="hidden" asp-for="@game.CorrectlyGuessed[i]" 
+                   />}
 
 
         @for (int i = 0; i < game.IncorrectlyGuessed.Count; i++)
