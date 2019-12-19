@@ -1,23 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Diagnostics;
+using System.Web;
 using Microsoft.AspNetCore.Mvc;
 using HangManGame.Models;
 using Microsoft.AspNetCore.Http;
+using Newtonsoft.Json;
+using System;
 
 namespace HangManGame.Controllers
 {
     public class GameController : Controller
     {
-
+        //Create instance of the game
+        private static Game game = new Game();
+  
         public IActionResult Index()
         {
-            return View("Index");
+
+            //Initialise the game
+            game.GetWord();
+            game.GenerateAnswer();
+
+            return View("Index", game);
+        }
+
+        public IActionResult InPlay()
+        {
+            game.UpdateAnswer();
+            //Display the current state of the game
+            return View("Index", game);
         }
 
         public IActionResult Privacy()
+        {
+            return View();
+        }
+        public IActionResult gamePlay()
         {
             return View();
         }
@@ -28,16 +45,29 @@ namespace HangManGame.Controllers
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
 
-
         [HttpPost]
-        public IActionResult Index(Game game)
+        public IActionResult SubmitGuess([FromForm] string guess)
         {
-            HttpContext.Session.SetString("Guess", game.Guess);
-            return RedirectToAction("Game");
+
+            
+            //Update the game based on the guess
+            game.GetGuess(guess);
+            game.CheckGuess();
+            game.UpdateAnswer();
+            game.CheckIfWon();
+            game.GameOver(); 
+            return RedirectToAction("InPlay", game);  /// was redirect to action 
+           
         }
 
     }
 }
-
-
+/*
+Guesses Ramaining
+Correctly Guessed Letters _ _ _ _
+Letters Available
+Incorrect Guesses
+Win or Loose messege
+whats being set/ read out 
+*/ 
 
