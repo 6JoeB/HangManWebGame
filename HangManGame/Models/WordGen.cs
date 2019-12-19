@@ -15,7 +15,7 @@ namespace HangManGame.Models
             switch (pid)
             {
                 case PlatformID.Win32NT:
-                    string[] lines = File.ReadAllLines(@"..\..\..\..\HangManTextFiles\wordsOne.txt");
+                    string[] lines = File.ReadAllLines(@"..\HangManTextFiles\wordsOne.txt");
                     string word = lines[new Random().Next(lines.Length)];
                     return word;
                 default:
