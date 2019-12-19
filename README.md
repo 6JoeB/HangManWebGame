@@ -4,9 +4,6 @@ Makers academy final project.
 
 --------
 
-Welcome To HangMan 
-This is the work of Kris, Sarah, Joe and David. 
-
 User Stories
 -----
 
