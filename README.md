@@ -1,8 +1,25 @@
+![GitHub repo size](https://img.shields.io/github/repo-size/Stupot83/AceBook?style=for-the-badge)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/Stupot83/AceBook?style=for-the-badge)
+![GitHub issues](https://img.shields.io/github/issues-raw/Stupot83/AceBook?style=for-the-badge)
+![GitHub last commit](https://img.shields.io/github/last-commit/Stupot83/AceBook?style=for-the-badge)
+![Maintenance](https://img.shields.io/maintenance/yes/2019?style=for-the-badge)
+
 ![alt text](https://ca.slack-edge.com/TBPN1712Q-UNH1PN80J-9d7ff3090eb0-512 "Tim was Here")
+
 # HangManWebGame
 Makers academy final project.
 
+We decided to create a hang man web game using C#, HTML, Bootstrap, and CSS.
+
 --------
+# To run
+
+* Install .Net SDK 2.1 and Visual Studio 2019 (optional).
+* Clone repo to local machine.
+* Cd to repo directory within terminal.
+* Type "dotnet run" and hit enter.
+* Or you can load the project in visual studio 2019, build and run the project using IIS Express run button.
+
 
 User Stories
 -----
