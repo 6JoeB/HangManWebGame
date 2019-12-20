@@ -1,5 +1,5 @@
 ﻿@using Microsoft.AspNetCore.Http;
-@using  HangManGame.Models;
+@using HangManGame.Models;
 @model HangManGame.Models.Game;
 
 @{
@@ -15,9 +15,10 @@
 
 
 @{  
+
     if (game.Win == true)
     {
-        <div class="container-fluid mid-aligned win-lose-card">
+        <div class="container-fluid mid-aligned win-lose-card win-lose-delay">
         <p class="space-top"> You Win! :)</p>
         <p class="space-top"> The word was @{@game.FullWord}</p>
         <p class="space-top space-bot"> @Html.ActionLink("New Game", "Index", "Game")</p>
@@ -27,7 +28,7 @@
 
     else if (game.Lose == true)
     {
-        <div class="container-fluid mid-aligned win-lose-card">
+        <div class="container-fluid mid-aligned win-lose-card win-lose-delay">
         <p class="space-top"> You Lose :(</p>
         <p class="space-top"> The word was @{@game.FullWord}</p>
         <p class="space-top space-bot"> @Html.ActionLink("New Game", "Index", "Game")</p>
@@ -45,15 +46,62 @@
             <div class="container-fluid playing-card mid-aligned game-text-size">
                 <form action="/game/submitguess" method="POST">
                     <span class="left-aligned gameplay-text">Lives remaining: @{@game.NumberOfGuesses}</span>
-                        
+
                     <span class="right-aligned gameplay-text">Your previous guess was: @{@game.Guess}</span>
 
                     <br />
 
+                    @{
+                        if (@game.NumberOfGuesses == 10)
+                        {
+                            <img class="mid-aligned" src="~/images/10lives.jpg" BackColor="Transparent">
+                        }
+                        else if (@game.NumberOfGuesses == 9)
+                        {
+                            <img class="mid-aligned " src="~/images/9lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 8)
+                        {
+                            <img class="mid-aligned " src="~/images/8lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 7)
+                        {
+                            <img class="mid-aligned " src="~/images/7lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 6)
+                        {
+                            <img class="mid-aligned " src="~/images/6lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 5)
+                        {
+                            <img class="mid-aligned " src="~/images/5lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 4)
+                        {
+                            <img class="mid-aligned " src="~/images/4lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 3)
+                        {
+                            <img class="mid-aligned " src="~/images/3lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 2)
+                        {
+                            <img class="mid-aligned " src="~/images/2lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 1)
+                        {
+                            <img class="mid-aligned " src="~/images/1lives.jpg">
+                        }
+                        else if (@game.NumberOfGuesses == 0)
+                        {
+                            <img class="mid-aligned " src="~/images/0lives.jpg">
+                        }
+                    }
+
                     <p class="word-text">
                         @foreach (var letter in @game.Answer)
                         {
-                            <span>@{@letter} </span>
+                            <span class="mid-aligned">@{@letter} </span>
                         }
                     </p>
 
@@ -61,7 +109,7 @@
                     <br />
 
                     <span class="gameplay-text">Please enter your guess: </span>
-                    <input type="text" name="guess" required ="" max="1"  autofocus/>
+                    <input type="text" name="guess" required="" maxlength="1" autofocus />
                     @Html.ValidationMessageFor(m => m.Guess)
 
                     <button type="submit" class="btn btn-primary">Submit</button>
@@ -71,22 +119,22 @@
                     <div class="row">
                         <div class="column">
                             <p class="mid-aligned gameplay-text">Letters correctly guessed: </p>
-                                <ul>
-                                    @foreach  (var correctGuess in game.CorrectlyGuessed)
-                                    {
-                                        <span class="mid-aligned gameplay-text"> @correctGuess </span>
-                                    }
-                                </ul>
+                            <ul>
+                                @foreach (var correctGuess in game.CorrectlyGuessed)
+                                {
+                                    <span class="mid-aligned gameplay-text"> @correctGuess </span>
+                                }
+                            </ul>
                         </div>
 
                         <div class="column">
                             <p class="mid-aligned gameplay-text">Letters incorrectly guessed: </p>
-                                <ul>
-                                    @foreach  (var incorrectGuess in game.IncorrectlyGuessed)
-                                    {
-                                        <span class="mid-aligned gameplay-text"> @incorrectGuess </span>
-                                    }
-                                </ul>
+                            <ul>
+                                @foreach (var incorrectGuess in game.IncorrectlyGuessed)
+                                {
+                                    <span class="mid-aligned gameplay-text"> @incorrectGuess </span>
+                                }
+                            </ul>
                         </div>
                     </div>
                 </form>

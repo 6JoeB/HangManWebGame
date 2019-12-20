@@ -182,3 +182,13 @@ ul.nav a:hover {
   display: table;
   clear: both;
 }
+
+.img {
+    background-color: transparent !important;
+    border: none;
+}
+
+.win-lose-delay {
+    transition-delay: 2s;
+    animation-delay: initial 2s;
+}
