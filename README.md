@@ -18,7 +18,7 @@ We decided to create a hang man web game using C#, HTML, Bootstrap, and CSS.
 * Clone repo to local machine.
 * Cd to repo directory within terminal.
 * Type "dotnet run" and hit enter.
-* Or you can load the project in visual studio 2019, build and run the project using IIS Express run button.
+* Or you can load the project in Visual Studio 2019, build and run the project using IIS Express run button.
 
 
 User Stories
